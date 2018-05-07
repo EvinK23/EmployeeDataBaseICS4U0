@@ -40,40 +40,48 @@
                           <Component id="fullTimeAddButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="fullTimeLastNameLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fullTimeAgeLable" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="fullTimeLastNameTextField" min="-2" pref="288" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="fullTimeFristNameLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="fullTimeFirstNameTextField" min="-2" pref="288" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="fullTimeDeductionRateLable" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="fullTimeDeductionRateTextField" min="-2" pref="288" max="-2" attributes="0"/>
+                                  <Component id="fullTimeAgeTextField" min="-2" pref="288" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="fullTimeEmployeeNumberLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fullTimeSexLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fullTimeWorkLocationLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fullTimeDeductionRateLable" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fullTimeYearlySalaryLable" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="fullTimeYearlySalaryTextField" min="-2" pref="288" max="-2" attributes="0"/>
+                                      <Component id="fullTimeDeductionRateTextField" min="-2" pref="288" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="fullTimeSexLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fullTimeWorkLocationLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fullTimeEmployeeNumberLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="fullTimeWorkLocationComboBox" min="-2" max="-2" attributes="0"/>
                                       <Component id="fullTimeSexComboBox" min="-2" max="-2" attributes="0"/>
                                       <Component id="fullTimeEmployeeNumberTextField" min="-2" pref="288" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="fullTimeYearlySalaryLable" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="fullTimeYearlySalaryTextField" min="-2" pref="288" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fullTimeLastNameLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="fullTimeLastNameTextField" min="-2" pref="288" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fullTimeFristNameLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="fullTimeFirstNameTextField" min="-2" pref="288" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -110,7 +118,12 @@
                       <Component id="fullTimeWorkLocationComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeWorkLocationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="fullTimeAgeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fullTimeAgeLable" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="fullTimeDeductionRateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeDeductionRateLable" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -120,7 +133,7 @@
                       <Component id="fullTimeYearlySalaryTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeYearlySalaryLable" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="149" max="32767" attributes="0"/>
+                  <EmptySpace pref="133" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="fullTimeCancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -220,6 +233,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fullTimeCancelButtonActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JLabel" name="fullTimeAgeLable">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Age"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fullTimeAgeTextField">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="addPartTime">
@@ -281,6 +301,11 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="partTimeWeeksPerYearTextField" min="-2" pref="288" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="fullTimeAgeLable1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="fullTimeAgeTextField1" min="-2" pref="288" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -316,7 +341,12 @@
                       <Component id="partTimeWorkLocationComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="partTimeWorkLocationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="fullTimeAgeTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fullTimeAgeLable1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="partTimeDeductionRateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="partTimeDeductionRateLable" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -336,7 +366,7 @@
                       <Component id="partTimeWeeksPerYearTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="partTimeWeeksPerYearLable" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="87" max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="partTimeAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="partTimeCancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -446,6 +476,13 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partTimeCancelButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fullTimeAgeTextField1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="fullTimeAgeLable1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Age"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

@@ -54,6 +54,8 @@ public class MainFrame extends javax.swing.JFrame {
         fullTimeYearlySalaryTextField = new javax.swing.JTextField();
         fullTimeAddButton = new javax.swing.JButton();
         fullTimeCancelButton = new javax.swing.JButton();
+        fullTimeAgeLable = new javax.swing.JLabel();
+        fullTimeAgeTextField = new javax.swing.JTextField();
         addPartTime = new javax.swing.JFrame();
         partTimeFristNameLabel = new javax.swing.JLabel();
         partTimeLastNameLabel = new javax.swing.JLabel();
@@ -75,6 +77,8 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeWeeksPerYearTextField = new javax.swing.JTextField();
         partTimeAddButton = new javax.swing.JButton();
         partTimeCancelButton = new javax.swing.JButton();
+        fullTimeAgeTextField1 = new javax.swing.JTextField();
+        fullTimeAgeLable1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
@@ -127,6 +131,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        fullTimeAgeLable.setText("Age");
+
         javax.swing.GroupLayout addFullTimeLayout = new javax.swing.GroupLayout(addFullTime.getContentPane());
         addFullTime.getContentPane().setLayout(addFullTimeLayout);
         addFullTimeLayout.setHorizontalGroup(
@@ -139,34 +145,39 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(fullTimeAddButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
-                        .addGap(0, 12, Short.MAX_VALUE)
+                        .addGap(0, 4, Short.MAX_VALUE)
                         .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
-                                .addComponent(fullTimeLastNameLabel)
+                                .addComponent(fullTimeAgeLable)
                                 .addGap(18, 18, 18)
-                                .addComponent(fullTimeLastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
-                                .addComponent(fullTimeFristNameLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(fullTimeFirstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
-                                .addComponent(fullTimeDeductionRateLable)
-                                .addGap(18, 18, 18)
-                                .addComponent(fullTimeDeductionRateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fullTimeAgeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
                                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(fullTimeEmployeeNumberLabel)
+                                    .addComponent(fullTimeDeductionRateLable)
+                                    .addComponent(fullTimeYearlySalaryLable))
+                                .addGap(18, 18, 18)
+                                .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fullTimeYearlySalaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fullTimeDeductionRateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
+                                .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(fullTimeSexLabel)
-                                    .addComponent(fullTimeWorkLocationLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(fullTimeWorkLocationLabel)
+                                    .addComponent(fullTimeEmployeeNumberLabel))
+                                .addGap(18, 18, 18)
                                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(fullTimeWorkLocationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fullTimeSexComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fullTimeEmployeeNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
-                                .addComponent(fullTimeYearlySalaryLable)
-                                .addGap(18, 18, 18)
-                                .addComponent(fullTimeYearlySalaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
+                                    .addComponent(fullTimeLastNameLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fullTimeLastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFullTimeLayout.createSequentialGroup()
+                                    .addComponent(fullTimeFristNameLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(fullTimeFirstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         addFullTimeLayout.setVerticalGroup(
@@ -192,7 +203,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeWorkLocationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fullTimeWorkLocationLabel))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fullTimeAgeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fullTimeAgeLable))
+                .addGap(10, 10, 10)
                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeDeductionRateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fullTimeDeductionRateLable))
@@ -200,7 +215,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeYearlySalaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fullTimeYearlySalaryLable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeCancelButton)
                     .addComponent(fullTimeAddButton))
@@ -237,6 +252,8 @@ public class MainFrame extends javax.swing.JFrame {
                 partTimeCancelButtonActionPerformed(evt);
             }
         });
+
+        fullTimeAgeLable1.setText("Age");
 
         javax.swing.GroupLayout addPartTimeLayout = new javax.swing.GroupLayout(addPartTime.getContentPane());
         addPartTime.getContentPane().setLayout(addPartTimeLayout);
@@ -285,7 +302,11 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPartTimeLayout.createSequentialGroup()
                                 .addComponent(partTimeWeeksPerYearLable)
                                 .addGap(18, 18, 18)
-                                .addComponent(partTimeWeeksPerYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(partTimeWeeksPerYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPartTimeLayout.createSequentialGroup()
+                                .addComponent(fullTimeAgeLable1)
+                                .addGap(18, 18, 18)
+                                .addComponent(fullTimeAgeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         addPartTimeLayout.setVerticalGroup(
@@ -311,7 +332,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeWorkLocationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(partTimeWorkLocationLabel))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fullTimeAgeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fullTimeAgeLable1))
+                .addGap(13, 13, 13)
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeDeductionRateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(partTimeDeductionRateLable))
@@ -327,7 +352,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeWeeksPerYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(partTimeWeeksPerYearLable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeAddButton)
                     .addComponent(partTimeCancelButton))
@@ -418,7 +443,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_fullTimeCancelButtonActionPerformed
 
     private void fullTimeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeAddButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_fullTimeAddButtonActionPerformed
 
     /**
@@ -462,6 +487,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame addPartTime;
     private javax.swing.JMenuItem fullTime;
     private javax.swing.JButton fullTimeAddButton;
+    private javax.swing.JLabel fullTimeAgeLable;
+    private javax.swing.JLabel fullTimeAgeLable1;
+    private javax.swing.JTextField fullTimeAgeTextField;
+    private javax.swing.JTextField fullTimeAgeTextField1;
     private javax.swing.JButton fullTimeCancelButton;
     private javax.swing.JLabel fullTimeDeductionRateLable;
     private javax.swing.JTextField fullTimeDeductionRateTextField;
