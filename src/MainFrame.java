@@ -16,15 +16,27 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    public MyHashTable theTable = new MyHashTable(2);
+    
+    //constructor
     public MainFrame() {
         initComponents();
         mySettings();
     }
+ 
 
     public void mySettings () {
         addFullTime.setVisible(false);
         addPartTime.setVisible(false);
+        missingFrame.setVisible(false);
+
+        addFullTime.setSize(430,490);
+        addPartTime.setSize(430,490);
+        missingFrame.setSize(400,150);
     }
+    
+  
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,6 +68,7 @@ public class MainFrame extends javax.swing.JFrame {
         fullTimeCancelButton = new javax.swing.JButton();
         fullTimeAgeLable = new javax.swing.JLabel();
         fullTimeAgeTextField = new javax.swing.JTextField();
+        fullTimeAddedLabel = new javax.swing.JLabel();
         addPartTime = new javax.swing.JFrame();
         partTimeFristNameLabel = new javax.swing.JLabel();
         partTimeLastNameLabel = new javax.swing.JLabel();
@@ -77,8 +90,12 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeWeeksPerYearTextField = new javax.swing.JTextField();
         partTimeAddButton = new javax.swing.JButton();
         partTimeCancelButton = new javax.swing.JButton();
-        fullTimeAgeTextField1 = new javax.swing.JTextField();
+        partTimeAgeTextField = new javax.swing.JTextField();
         fullTimeAgeLable1 = new javax.swing.JLabel();
+        partTimeAddedLabel = new javax.swing.JLabel();
+        missingFrame = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
+        missingFrameOkButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
@@ -99,6 +116,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPopupAdd.add(partTime);
 
+        addFullTime.setTitle("Add a Full-Time Employee");
+
         fullTimeFristNameLabel.setText("First Name");
 
         fullTimeLastNameLabel.setText("Last Name");
@@ -111,13 +130,18 @@ public class MainFrame extends javax.swing.JFrame {
 
         fullTimeWorkLocationLabel.setText("Work Location");
 
-        fullTimeSexComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Other", "Male", "Female" }));
+        fullTimeSexComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
 
         fullTimeWorkLocationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mississauga", "Ottawa", "Chicago" }));
 
         fullTimeYearlySalaryLable.setText("Yearly Salary");
 
         fullTimeAddButton.setText("Add");
+        fullTimeAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                fullTimeAddButtonMouseExited(evt);
+            }
+        });
         fullTimeAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fullTimeAddButtonActionPerformed(evt);
@@ -179,6 +203,10 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(fullTimeFirstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
+            .addGroup(addFullTimeLayout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(fullTimeAddedLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addFullTimeLayout.setVerticalGroup(
             addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,12 +243,16 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeYearlySalaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fullTimeYearlySalaryLable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fullTimeAddedLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addGroup(addFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeCancelButton)
                     .addComponent(fullTimeAddButton))
                 .addContainerGap())
         );
+
+        addPartTime.setTitle("Add a Part-Time Employee");
 
         partTimeFristNameLabel.setText("First Name");
 
@@ -245,6 +277,16 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeWeeksPerYearLable.setText("Weeks per Year");
 
         partTimeAddButton.setText("Add");
+        partTimeAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                partTimeAddButtonMouseExited(evt);
+            }
+        });
+        partTimeAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partTimeAddButtonActionPerformed(evt);
+            }
+        });
 
         partTimeCancelButton.setText("Cancel");
         partTimeCancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -306,8 +348,12 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPartTimeLayout.createSequentialGroup()
                                 .addComponent(fullTimeAgeLable1)
                                 .addGap(18, 18, 18)
-                                .addComponent(fullTimeAgeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(partTimeAgeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPartTimeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(partTimeAddedLabel)
+                .addGap(180, 180, 180))
         );
         addPartTimeLayout.setVerticalGroup(
             addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +380,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(partTimeWorkLocationLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fullTimeAgeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(partTimeAgeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fullTimeAgeLable1))
                 .addGap(13, 13, 13)
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -352,21 +398,55 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeWeeksPerYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(partTimeWeeksPerYearLable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(partTimeAddedLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeAddButton)
                     .addComponent(partTimeCancelButton))
                 .addContainerGap())
         );
 
+        jLabel1.setText("Some of the form is missing!");
+
+        missingFrameOkButton.setText("OK");
+        missingFrameOkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                missingFrameOkButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout missingFrameLayout = new javax.swing.GroupLayout(missingFrame.getContentPane());
+        missingFrame.getContentPane().setLayout(missingFrameLayout);
+        missingFrameLayout.setHorizontalGroup(
+            missingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(missingFrameLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel1)
+                .addContainerGap(101, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, missingFrameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(missingFrameOkButton)
+                .addContainerGap())
+        );
+        missingFrameLayout.setVerticalGroup(
+            missingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(missingFrameLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(missingFrameOkButton))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("EDMS - Employee Database Management System");
 
         hashTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "First Name", "Last Name", "Employee Number", "Work Location", "Sex", "Age"
+                "First Name", "Last Name", "Employee Number", "Work Location"
             }
         ));
         jScrollPane2.setViewportView(hashTable);
@@ -414,23 +494,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void fullTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeActionPerformed
         addFullTime.setVisible(true);
-        addFullTime.setSize(425,480);
+        fullTimeAddedLabel.setText("");
+        
     }//GEN-LAST:event_fullTimeActionPerformed
 
     private void partTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeActionPerformed
         addPartTime.setVisible(true);
-        addPartTime.setSize(425,480);
+        
     }//GEN-LAST:event_partTimeActionPerformed
 
     private void partTimeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeCancelButtonActionPerformed
         addPartTime.setVisible(false);
         partTimeFirstNameTextField.setText("");
         partTimeLastNameTextField.setText("");
+        partTimeAgeTextField.setText("");
         partTimeEmployeeNumberTextField.setText("");
         partTimeDeductionRateTextField.setText("");
         partTimeHourlyWageTextField.setText("");
         partTimeHoursPerWeekTextField.setText("");
         partTimeWeeksPerYearTextField.setText("");
+
     }//GEN-LAST:event_partTimeCancelButtonActionPerformed
 
     private void fullTimeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeCancelButtonActionPerformed
@@ -438,13 +521,104 @@ public class MainFrame extends javax.swing.JFrame {
         fullTimeFirstNameTextField.setText("");
         fullTimeLastNameTextField.setText("");
         fullTimeEmployeeNumberTextField.setText("");
+        fullTimeAgeTextField.setText("");
         fullTimeDeductionRateTextField.setText("");
         fullTimeYearlySalaryTextField.setText("");
     }//GEN-LAST:event_fullTimeCancelButtonActionPerformed
 
     private void fullTimeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeAddButtonActionPerformed
+        if (fullTimeFirstNameTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (fullTimeLastNameTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (fullTimeEmployeeNumberTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (fullTimeAgeTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (fullTimeDeductionRateTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (fullTimeYearlySalaryTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else {
+
+         FullTimeEmployee somebody;
+         somebody = new FullTimeEmployee (Integer.parseInt(fullTimeAgeTextField.getText()), 
+                                          Integer.parseInt(fullTimeEmployeeNumberTextField.getText()),
+                                          fullTimeSexComboBox.getSelectedIndex(),
+                                          fullTimeWorkLocationComboBox.getSelectedIndex(),
+                                          Double.parseDouble(fullTimeDeductionRateTextField.getText()),
+                                          fullTimeFirstNameTextField.getText(),
+                                          fullTimeLastNameTextField.getText(),
+                                          Double.parseDouble(fullTimeYearlySalaryTextField.getText()));
+         theTable.addToHashTable(somebody);
+         
+        fullTimeFirstNameTextField.setText("");
+        fullTimeLastNameTextField.setText("");
+        fullTimeEmployeeNumberTextField.setText("");
+        fullTimeAgeTextField.setText("");
+        fullTimeDeductionRateTextField.setText("");
+        fullTimeYearlySalaryTextField.setText("");
         
+        
+        fullTimeAddedLabel.setText("Employee has added.");
+        }
     }//GEN-LAST:event_fullTimeAddButtonActionPerformed
+
+    private void partTimeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeAddButtonActionPerformed
+        if (partTimeFirstNameTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (partTimeLastNameTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (partTimeEmployeeNumberTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (partTimeAgeTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (partTimeDeductionRateTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (partTimeHourlyWageTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (partTimeHoursPerWeekTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else if (partTimeWeeksPerYearTextField.getText().isEmpty()) {
+            missingFrame.setVisible(true);
+        } else {
+         
+         PartTimeEmployee somebody;
+         somebody = new PartTimeEmployee (Integer.parseInt(partTimeAgeTextField.getText()), 
+                                          Integer.parseInt(partTimeEmployeeNumberTextField.getText()),
+                                          partTimeSexComboBox.getSelectedIndex(),
+                                          partTimeWorkLocationComboBox.getSelectedIndex(),
+                                          Double.parseDouble(partTimeDeductionRateTextField.getText()),
+                                          partTimeFirstNameTextField.getText(),
+                                          partTimeLastNameTextField.getText(),
+                                          Double.parseDouble(partTimeHourlyWageTextField.getText()),
+                                          Double.parseDouble(partTimeHoursPerWeekTextField.getText()),
+                                          Double.parseDouble(partTimeWeeksPerYearTextField.getText()));
+         theTable.addToHashTable(somebody);
+         
+        partTimeFirstNameTextField.setText("");
+        partTimeLastNameTextField.setText("");
+        partTimeAgeTextField.setText("");
+        partTimeEmployeeNumberTextField.setText("");
+        partTimeDeductionRateTextField.setText("");
+        partTimeHourlyWageTextField.setText("");
+        partTimeHoursPerWeekTextField.setText("");
+        partTimeWeeksPerYearTextField.setText("");
+        partTimeAddedLabel.setText("Employee has been added");
+        }
+    }//GEN-LAST:event_partTimeAddButtonActionPerformed
+
+    private void missingFrameOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_missingFrameOkButtonActionPerformed
+        missingFrame.dispose();
+    }//GEN-LAST:event_missingFrameOkButtonActionPerformed
+
+    private void fullTimeAddButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullTimeAddButtonMouseExited
+        fullTimeAddedLabel.setText("");
+    }//GEN-LAST:event_fullTimeAddButtonMouseExited
+
+    private void partTimeAddButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partTimeAddButtonMouseExited
+        partTimeAddedLabel.setText("");
+    }//GEN-LAST:event_partTimeAddButtonMouseExited
 
     /**
      * @param args the command line arguments
@@ -487,10 +661,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame addPartTime;
     private javax.swing.JMenuItem fullTime;
     private javax.swing.JButton fullTimeAddButton;
+    private javax.swing.JLabel fullTimeAddedLabel;
     private javax.swing.JLabel fullTimeAgeLable;
     private javax.swing.JLabel fullTimeAgeLable1;
     private javax.swing.JTextField fullTimeAgeTextField;
-    private javax.swing.JTextField fullTimeAgeTextField1;
     private javax.swing.JButton fullTimeCancelButton;
     private javax.swing.JLabel fullTimeDeductionRateLable;
     private javax.swing.JTextField fullTimeDeductionRateTextField;
@@ -507,10 +681,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel fullTimeYearlySalaryLable;
     private javax.swing.JTextField fullTimeYearlySalaryTextField;
     private javax.swing.JTable hashTable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPopupMenu jPopupAdd;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JFrame missingFrame;
+    private javax.swing.JButton missingFrameOkButton;
     private javax.swing.JMenuItem partTime;
     private javax.swing.JButton partTimeAddButton;
+    private javax.swing.JLabel partTimeAddedLabel;
+    private javax.swing.JTextField partTimeAgeTextField;
     private javax.swing.JButton partTimeCancelButton;
     private javax.swing.JLabel partTimeDeductionRateLable;
     private javax.swing.JTextField partTimeDeductionRateTextField;

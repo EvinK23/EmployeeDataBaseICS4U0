@@ -27,6 +27,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="addFullTime">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Add a Full-Time Employee"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -88,6 +91,11 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="fullTimeAddedLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -133,7 +141,9 @@
                       <Component id="fullTimeYearlySalaryTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeYearlySalaryLable" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="133" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="fullTimeAddedLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="122" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="fullTimeCancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -186,9 +196,9 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="Other"/>
-                <StringItem index="1" value="Male"/>
-                <StringItem index="2" value="Female"/>
+                <StringItem index="0" value="Male"/>
+                <StringItem index="1" value="Female"/>
+                <StringItem index="2" value="Other"/>
               </StringArray>
             </Property>
           </Properties>
@@ -222,6 +232,7 @@
             <Property name="text" type="java.lang.String" value="Add"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fullTimeAddButtonMouseExited"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fullTimeAddButtonActionPerformed"/>
           </Events>
         </Component>
@@ -240,9 +251,14 @@
         </Component>
         <Component class="javax.swing.JTextField" name="fullTimeAgeTextField">
         </Component>
+        <Component class="javax.swing.JLabel" name="fullTimeAddedLabel">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="addPartTime">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Add a Part-Time Employee"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -304,12 +320,17 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="fullTimeAgeLable1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="fullTimeAgeTextField1" min="-2" pref="288" max="-2" attributes="0"/>
+                                  <Component id="partTimeAgeTextField" min="-2" pref="288" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="partTimeAddedLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -343,7 +364,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="fullTimeAgeTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partTimeAgeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeAgeLable1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
@@ -366,7 +387,9 @@
                       <Component id="partTimeWeeksPerYearTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="partTimeWeeksPerYearLable" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="partTimeAddedLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="partTimeAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="partTimeCancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -468,6 +491,10 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Add"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="partTimeAddButtonMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partTimeAddButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="partTimeCancelButton">
           <Properties>
@@ -477,18 +504,65 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partTimeCancelButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="fullTimeAgeTextField1">
+        <Component class="javax.swing.JTextField" name="partTimeAgeTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="fullTimeAgeLable1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Age"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="partTimeAddedLabel">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="missingFrame">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="101" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="missingFrameOkButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <Component id="missingFrameOkButton" min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Some of the form is missing!"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="missingFrameOkButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="OK"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="missingFrameOkButtonActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="EDMS - Employee Database Management System"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -547,27 +621,15 @@
         <Component class="javax.swing.JTable" name="hashTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="0">
+              <Table columnCount="4" rowCount="0">
                 <Column editable="true" title="First Name" type="java.lang.Object"/>
                 <Column editable="true" title="Last Name" type="java.lang.Object"/>
                 <Column editable="true" title="Employee Number" type="java.lang.Object"/>
                 <Column editable="true" title="Work Location" type="java.lang.Object"/>
-                <Column editable="true" title="Sex" type="java.lang.Object"/>
-                <Column editable="true" title="Age" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
