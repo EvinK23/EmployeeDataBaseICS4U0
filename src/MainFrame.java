@@ -96,9 +96,14 @@ public class MainFrame extends javax.swing.JFrame {
         missingFrame = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         missingFrameOkButton = new javax.swing.JButton();
+        removeFrame = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
+        employeeNumTextBox = new javax.swing.JTextField();
+        confirmButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
 
         fullTime.setText("Add Full-Time Employee");
         fullTime.addActionListener(new java.awt.event.ActionListener() {
@@ -438,6 +443,54 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(missingFrameOkButton))
         );
 
+        removeFrame.setBounds(new java.awt.Rectangle(399, 300, 300, 300));
+        removeFrame.setMaximumSize(new java.awt.Dimension(399, 300));
+        removeFrame.setMinimumSize(new java.awt.Dimension(399, 300));
+        removeFrame.setResizable(false);
+
+        jLabel2.setText("Employee Number");
+
+        employeeNumTextBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeNumTextBoxActionPerformed(evt);
+            }
+        });
+
+        confirmButton.setText("Confirm");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout removeFrameLayout = new javax.swing.GroupLayout(removeFrame.getContentPane());
+        removeFrame.getContentPane().setLayout(removeFrameLayout);
+        removeFrameLayout.setHorizontalGroup(
+            removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(removeFrameLayout.createSequentialGroup()
+                .addGroup(removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(removeFrameLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(employeeNumTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(removeFrameLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(confirmButton)))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        removeFrameLayout.setVerticalGroup(
+            removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(removeFrameLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(employeeNumTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                .addComponent(confirmButton)
+                .addGap(23, 23, 23))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EDMS - Employee Database Management System");
 
@@ -458,6 +511,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        removeButton.setText("Remove");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -469,7 +529,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(383, 383, 383)
-                        .addComponent(addButton)))
+                        .addComponent(addButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeButton)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -478,7 +540,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(addButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addButton)
+                    .addComponent(removeButton))
                 .addContainerGap())
         );
 
@@ -620,6 +684,25 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeAddedLabel.setText("");
     }//GEN-LAST:event_partTimeAddButtonMouseExited
 
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        // TODO add your handling code here:
+        removeFrame.setVisible(true);
+    }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void employeeNumTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNumTextBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeNumTextBoxActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here:
+        
+        theTable.removeFromHashTable(Integer.parseInt(employeeNumTextBox.getText()));
+        removeFrame.setVisible(false);
+        employeeNumTextBox.setText(null);
+        
+        
+    }//GEN-LAST:event_confirmButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -659,6 +742,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JFrame addFullTime;
     private javax.swing.JFrame addPartTime;
+    private javax.swing.JButton confirmButton;
+    private javax.swing.JTextField employeeNumTextBox;
     private javax.swing.JMenuItem fullTime;
     private javax.swing.JButton fullTimeAddButton;
     private javax.swing.JLabel fullTimeAddedLabel;
@@ -682,6 +767,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField fullTimeYearlySalaryTextField;
     private javax.swing.JTable hashTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPopupMenu jPopupAdd;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JFrame missingFrame;
@@ -709,5 +795,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField partTimeWeeksPerYearTextField;
     private javax.swing.JComboBox<String> partTimeWorkLocationComboBox;
     private javax.swing.JLabel partTimeWorkLocationLabel;
+    private javax.swing.JButton removeButton;
+    private javax.swing.JFrame removeFrame;
     // End of variables declaration//GEN-END:variables
 }
