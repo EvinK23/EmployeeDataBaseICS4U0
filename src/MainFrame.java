@@ -100,6 +100,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         employeeNumTextBox = new javax.swing.JTextField();
         confirmButton = new javax.swing.JButton();
+        invalidEmployeeLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
@@ -443,9 +444,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(missingFrameOkButton))
         );
 
-        removeFrame.setBounds(new java.awt.Rectangle(399, 300, 300, 300));
-        removeFrame.setMaximumSize(new java.awt.Dimension(399, 300));
-        removeFrame.setMinimumSize(new java.awt.Dimension(399, 300));
+        removeFrame.setBounds(new java.awt.Rectangle(370, 400, 400, 400));
+        removeFrame.setMaximumSize(new java.awt.Dimension(370, 400));
+        removeFrame.setPreferredSize(new java.awt.Dimension(370, 400));
         removeFrame.setResizable(false);
 
         jLabel2.setText("Employee Number");
@@ -457,6 +458,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         confirmButton.setText("Confirm");
+        confirmButton.setMaximumSize(new java.awt.Dimension(300, 400));
+        confirmButton.setMinimumSize(new java.awt.Dimension(300, 400));
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmButtonActionPerformed(evt);
@@ -475,9 +478,12 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(employeeNumTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(removeFrameLayout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(confirmButton)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addGap(179, 179, 179)
+                        .addComponent(invalidEmployeeLabel))
+                    .addGroup(removeFrameLayout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         removeFrameLayout.setVerticalGroup(
             removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,9 +492,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(employeeNumTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                .addComponent(confirmButton)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addComponent(invalidEmployeeLabel)
+                .addGap(40, 40, 40)
+                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -695,11 +703,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
+        if (theTable.findIndex(Integer.parseInt(employeeNumTextBox.getText())) == -1) {
+            invalidEmployeeLabel.setText("The entered employee does not exist");
+        }
         
+        else {
         theTable.removeFromHashTable(Integer.parseInt(employeeNumTextBox.getText()));
         removeFrame.setVisible(false);
         employeeNumTextBox.setText(null);
-        
+        }
         
     }//GEN-LAST:event_confirmButtonActionPerformed
 
@@ -766,6 +778,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel fullTimeYearlySalaryLable;
     private javax.swing.JTextField fullTimeYearlySalaryTextField;
     private javax.swing.JTable hashTable;
+    private javax.swing.JLabel invalidEmployeeLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPopupMenu jPopupAdd;
