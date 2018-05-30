@@ -6,6 +6,10 @@ public class MyHashTable {
 	private int numOfBuckets;
 	private int numInTable;
 	private ArrayList<EmployeeInfo>[] hashTable;
+        
+        public ArrayList<EmployeeInfo>[] getHashTable() {
+            return hashTable;
+        }
 	
 	//constructor
 	MyHashTable(int numOfBuckets) {
