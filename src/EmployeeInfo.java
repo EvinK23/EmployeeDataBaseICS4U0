@@ -43,6 +43,9 @@ public class EmployeeInfo {
 	public int getEmployeeNumber() {
 		return empNumber;
 	}
+        public double getDeductionsRate() {
+		return deductionsRate;
+	}
 	
 	//set
 	public void getFirstName(String firstName) {
