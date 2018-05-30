@@ -1,5 +1,8 @@
 
 import javax.swing.table.DefaultTableModel;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -105,6 +108,7 @@ public class MainFrame extends javax.swing.JFrame {
         hashTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
 
         fullTime.setText("Add Full-Time Employee");
         fullTime.addActionListener(new java.awt.event.ActionListener() {
@@ -445,8 +449,6 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         removeFrame.setBounds(new java.awt.Rectangle(370, 400, 400, 400));
-        removeFrame.setMaximumSize(new java.awt.Dimension(370, 400));
-        removeFrame.setPreferredSize(new java.awt.Dimension(370, 400));
         removeFrame.setResizable(false);
 
         jLabel2.setText("Employee Number");
@@ -526,20 +528,27 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(383, 383, 383)
+                        .addComponent(saveButton)
+                        .addGap(262, 262, 262)
                         .addComponent(addButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeButton)))
+                        .addComponent(removeButton))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -550,7 +559,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
-                    .addComponent(removeButton))
+                    .addComponent(removeButton)
+                    .addComponent(saveButton))
                 .addContainerGap())
         );
 
@@ -715,6 +725,56 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        
+        String dataFile = "D://Netbeans Projects//EmployeeDataBaseICS4U0//src//data//data.txt.";
+        
+        try {
+            FileWriter fileWriter = new FileWriter(dataFile);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            
+		for (int i = 0; i < theTable.getHashTable().length; i++) {
+			
+			for (int j = 0; j < theTable.getHashTable()[i].size();j++)
+			{
+				bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getAge()));
+                                bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getEmployeeNumber()));
+                                bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getSex()));
+                                bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getWorkLocation()));
+                                bufferedWriter.write(Double.toString(theTable.getHashTable()[i].get(j).getDeductionsRate()));
+                                bufferedWriter.write(theTable.getHashTable()[i].get(j).getFirstName());
+                                bufferedWriter.write(theTable.getHashTable()[i].get(j).getLastName());
+                                bufferedWriter.write(Double.toString(theTable.getHashTable()[i].get(j).calcAnnualGrossIncome()));
+                                
+                                //System.out.println(theTable.getHashTable()[i].get(j).getAge());
+			}
+			
+		}
+            bufferedWriter.close();
+            /*
+            Integer.parseInt(fullTimeAgeTextField.getText()),
+                                          Integer.parseInt(fullTimeEmployeeNumberTextField.getText()),
+                                          fullTimeSexComboBox.getSelectedIndex(),
+                                          fullTimeWorkLocationComboBox.getSelectedIndex(),
+                                          Double.parseDouble(fullTimeDeductionRateTextField.getText()),
+                                          fullTimeFirstNameTextField.getText(),
+                                          fullTimeLastNameTextField.getText(),
+                                          Double.parseDouble(fullTimeYearlySalaryTextField.getText()))
+            
+            */
+            
+        } catch (IOException ex) {
+            System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
+        }
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_saveButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -810,5 +870,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel partTimeWorkLocationLabel;
     private javax.swing.JButton removeButton;
     private javax.swing.JFrame removeFrame;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }
