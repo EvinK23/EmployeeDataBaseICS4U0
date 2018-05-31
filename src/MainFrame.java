@@ -109,6 +109,7 @@ public class MainFrame extends javax.swing.JFrame {
         addButton = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
+        loadButton = new javax.swing.JToggleButton();
 
         fullTime.setText("Add Full-Time Employee");
         fullTime.addActionListener(new java.awt.event.ActionListener() {
@@ -535,32 +536,46 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        loadButton.setText("Load");
+        loadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveButton)
-                        .addGap(262, 262, 262)
+                        .addGap(392, 392, 392)
                         .addComponent(addButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(removeButton))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(saveButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(loadButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loadButton)
+                    .addComponent(saveButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
-                    .addComponent(removeButton)
-                    .addComponent(saveButton))
+                    .addComponent(removeButton))
                 .addContainerGap())
         );
 
@@ -737,29 +752,55 @@ public class MainFrame extends javax.swing.JFrame {
 			
 			for (int j = 0; j < theTable.getHashTable()[i].size();j++)
 			{
-				bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getAge()));
-                                bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getEmployeeNumber()));
-                                bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getSex()));
-                                bufferedWriter.write(Integer.toString(theTable.getHashTable()[i].get(j).getWorkLocation()));
-                                bufferedWriter.write(Double.toString(theTable.getHashTable()[i].get(j).getDeductionsRate()));
-                                bufferedWriter.write(theTable.getHashTable()[i].get(j).getFirstName());
-                                bufferedWriter.write(theTable.getHashTable()[i].get(j).getLastName());
-                                bufferedWriter.write(Double.toString(theTable.getHashTable()[i].get(j).calcAnnualGrossIncome()));
+                                if (theTable.getHashTable()[i].get(j) instanceof FullTimeEmployee) {
+                                    FullTimeEmployee tempFull = (FullTimeEmployee)theTable.getHashTable()[i].get(j);
+                                    
+                                    bufferedWriter.write("f" + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getAge()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getEmployeeNumber()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getSex()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getWorkLocation()) + "&");
+                                    bufferedWriter.write(Double.toString(tempFull.getDeductionsRate()) + "&");
+                                    bufferedWriter.write(tempFull.getFirstName() + "&");
+                                    bufferedWriter.write(tempFull.getLastName() + "&");
+                                    bufferedWriter.write(Double.toString(tempFull.calcAnnualGrossIncome()) + "&");
+                                    bufferedWriter.newLine();
+                                    
+                                }
+                                else if (theTable.getHashTable()[i].get(j) instanceof PartTimeEmployee){
+                                    PartTimeEmployee tempPart = (PartTimeEmployee)theTable.getHashTable()[i].get(j);
+                                    
+                                    bufferedWriter.write("p" + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getAge()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getEmployeeNumber()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getSex()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getWorkLocation()) + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getDeductionsRate()) + "&");
+                                    bufferedWriter.write(tempPart.getFirstName() + "&");
+                                    bufferedWriter.write(tempPart.getLastName() + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getHourlyWage()) + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getHoursPerWeek()) + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getWeeksPerYear()) + "&");
+                                    bufferedWriter.newLine();
+                                    
                                 
-                                //System.out.println(theTable.getHashTable()[i].get(j).getAge());
+                            
+                                }
 			}
 			
 		}
             bufferedWriter.close();
             /*
-            Integer.parseInt(fullTimeAgeTextField.getText()),
-                                          Integer.parseInt(fullTimeEmployeeNumberTextField.getText()),
-                                          fullTimeSexComboBox.getSelectedIndex(),
-                                          fullTimeWorkLocationComboBox.getSelectedIndex(),
-                                          Double.parseDouble(fullTimeDeductionRateTextField.getText()),
-                                          fullTimeFirstNameTextField.getText(),
-                                          fullTimeLastNameTextField.getText(),
-                                          Double.parseDouble(fullTimeYearlySalaryTextField.getText()))
+            Integer.parseInt(partTimeAgeTextField.getText()), 
+                                          Integer.parseInt(partTimeEmployeeNumberTextField.getText()),
+                                          partTimeSexComboBox.getSelectedIndex(),
+                                          partTimeWorkLocationComboBox.getSelectedIndex(),
+                                          Double.parseDouble(partTimeDeductionRateTextField.getText()),
+                                          partTimeFirstNameTextField.getText(),
+                                          partTimeLastNameTextField.getText(),
+                                          Double.parseDouble(partTimeHourlyWageTextField.getText()),
+                                          Double.parseDouble(partTimeHoursPerWeekTextField.getText()),
+                                          Double.parseDouble(partTimeWeeksPerYearTextField.getText()));
             
             */
             
@@ -774,6 +815,31 @@ public class MainFrame extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
+        // TODO add your handling code here:
+        
+        String dataFile = "D://Netbeans Projects//EmployeeDataBaseICS4U0//src//data//data.txt.";
+        
+        String line = null;
+        String[] dataArray = 
+        
+        try {
+            FileReader fileReader = new FileReader(dataFile);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            
+            while((line = bufferedReader.readLine()) != null) {
+                line.split("&");
+                System.out.println(line);
+            
+		
+            }
+            bufferedReader.close();
+            
+        } catch (IOException ex) {
+            System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
+        }
+    }//GEN-LAST:event_loadButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -843,6 +909,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPopupMenu jPopupAdd;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JToggleButton loadButton;
     private javax.swing.JFrame missingFrame;
     private javax.swing.JButton missingFrameOkButton;
     private javax.swing.JMenuItem partTime;
