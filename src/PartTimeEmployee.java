@@ -14,5 +14,15 @@ public class PartTimeEmployee extends EmployeeInfo{
 	public double calcAnnualGrossIncome() {
 		return hourlyWage*hoursPerWeek*weeksPerYear;
 	}
-	
+        
+        //get
+        public double getHourlyWage() {
+		return hourlyWage;
+	}
+	public double getHoursPerWeek() {
+		return hoursPerWeek;
+	}
+        public double getWeeksPerYear() {
+		return weeksPerYear;
+	}
 }
