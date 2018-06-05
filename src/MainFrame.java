@@ -819,18 +819,48 @@ public class MainFrame extends javax.swing.JFrame {
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
         // TODO add your handling code here:
         
+        
+        
         String dataFile = "D://Netbeans Projects//EmployeeDataBaseICS4U0//src//data//data.txt.";
         
         String line = null;
-        String[] dataArray = 
         
         try {
             FileReader fileReader = new FileReader(dataFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
             while((line = bufferedReader.readLine()) != null) {
-                line.split("&");
-                System.out.println(line);
+                String [] lineData = line.split("&"); //splitting string by &
+                
+                if (lineData[0].equals("f")) {
+                    FullTimeEmployee somebody;
+                    somebody = new FullTimeEmployee (Integer.parseInt(lineData[1]), 
+                                                     Integer.parseInt(lineData[2]),
+                                                     Integer.parseInt(lineData[3]),
+                                                     Integer.parseInt(lineData[4]),
+                                                     Double.parseDouble(lineData[5]),
+                                                     lineData[6],
+                                                     lineData[7],
+                                                     Double.parseDouble(lineData[8]));
+                    theTable.addToHashTable(somebody);
+                    
+                }
+                
+                else if (lineData[0].equals("p")) {
+                    PartTimeEmployee somebody;
+                    somebody = new PartTimeEmployee (Integer.parseInt(lineData[1]), 
+                                                     Integer.parseInt(lineData[2]),
+                                                     Integer.parseInt(lineData[3]),
+                                                     Integer.parseInt(lineData[4]),
+                                                     Double.parseDouble(lineData[5]),
+                                                     lineData[6],
+                                                     lineData[7],
+                                                     Double.parseDouble(lineData[8]),
+                                                     Double.parseDouble(lineData[9]),
+                                                     Double.parseDouble(lineData[9]));
+                    theTable.addToHashTable(somebody);
+                    
+                }
             
 		
             }
