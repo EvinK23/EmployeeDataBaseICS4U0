@@ -1,8 +1,6 @@
 
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -510,7 +508,7 @@ public class MainFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "First Name", "Last Name", "Employee Number", "Work Location"
+                "First Name", "Last Name", "Employee Number", "Work Location", "Type"
             }
         ));
         jScrollPane2.setViewportView(hashTable);
@@ -583,21 +581,16 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-//        DefaultTableModel model=(DefaultTableModel) hashTable.getModel();
-//        
-//        model.addRow(new Object[] {})
         jPopupAdd.show(this,addButton.getX(),addButton.getY());
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void fullTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeActionPerformed
         addFullTime.setVisible(true);
         fullTimeAddedLabel.setText("");
-        
     }//GEN-LAST:event_fullTimeActionPerformed
 
     private void partTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeActionPerformed
         addPartTime.setVisible(true);
-        
     }//GEN-LAST:event_partTimeActionPerformed
 
     private void partTimeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeCancelButtonActionPerformed
@@ -610,7 +603,6 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeHourlyWageTextField.setText("");
         partTimeHoursPerWeekTextField.setText("");
         partTimeWeeksPerYearTextField.setText("");
-
     }//GEN-LAST:event_partTimeCancelButtonActionPerformed
 
     private void fullTimeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeCancelButtonActionPerformed
@@ -649,6 +641,10 @@ public class MainFrame extends javax.swing.JFrame {
                                           Double.parseDouble(fullTimeYearlySalaryTextField.getText()));
          theTable.addToHashTable(somebody);
          
+         DefaultTableModel model=(DefaultTableModel) hashTable.getModel();
+         model.addRow (new Object[] {somebody.getFirstName(), somebody.getLastName(), somebody.getEmployeeNumber(), fullTimeWorkLocationComboBox.getItemAt(somebody.getWorkLocation()), "Part-time Employee"});
+         
+         
         fullTimeFirstNameTextField.setText("");
         fullTimeLastNameTextField.setText("");
         fullTimeEmployeeNumberTextField.setText("");
@@ -680,6 +676,10 @@ public class MainFrame extends javax.swing.JFrame {
             missingFrame.setVisible(true);
         } else {
          
+         
+        
+            
+            
          PartTimeEmployee somebody;
          somebody = new PartTimeEmployee (Integer.parseInt(partTimeAgeTextField.getText()), 
                                           Integer.parseInt(partTimeEmployeeNumberTextField.getText()),
@@ -692,6 +692,9 @@ public class MainFrame extends javax.swing.JFrame {
                                           Double.parseDouble(partTimeHoursPerWeekTextField.getText()),
                                           Double.parseDouble(partTimeWeeksPerYearTextField.getText()));
          theTable.addToHashTable(somebody);
+         DefaultTableModel model=(DefaultTableModel) hashTable.getModel();
+         model.addRow (new Object[] {somebody.getFirstName(), somebody.getLastName(), somebody.getEmployeeNumber(), partTimeWorkLocationComboBox.getItemAt(somebody.getWorkLocation()), "Part-time Employee"});
+         
          
         partTimeFirstNameTextField.setText("");
         partTimeLastNameTextField.setText("");
@@ -736,6 +739,26 @@ public class MainFrame extends javax.swing.JFrame {
         theTable.removeFromHashTable(Integer.parseInt(employeeNumTextBox.getText()));
         removeFrame.setVisible(false);
         employeeNumTextBox.setText(null);
+        
+        DefaultTableModel model = (DefaultTableModel) hashTable.getModel();
+        model.setRowCount(0);
+        EmployeeInfo somebody;
+        String partOrFull;
+            for (int i = 0; i < theTable.getHashTable().length; i++) {
+                for (int j = 0; j < theTable.getHashTable()[i].size(); j++) {
+                    
+                    somebody = theTable.getHashTable()[i].get(j);
+                    
+                    if (somebody instanceof PartTimeEmployee) {
+                        partOrFull = "Part-time";
+                    } else {
+                        partOrFull = "Full-time";
+                    }
+                    
+                    model.addRow(new Object[] {somebody.getFirstName(), somebody.getLastName(), somebody.getEmployeeNumber(), partTimeWorkLocationComboBox.getItemAt(somebody.getWorkLocation()), partOrFull});
+                }
+            }
+        
         }
         
     }//GEN-LAST:event_confirmButtonActionPerformed
