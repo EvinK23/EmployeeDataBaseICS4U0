@@ -825,20 +825,14 @@ public class MainFrame extends javax.swing.JFrame {
             
             
         }
-        
-        
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
         // TODO add your handling code here:
         
         
-        
+        theTable = new MyHashTable(2);
         File dataFile = new File("src/data.txt");
         
         String line = null;
