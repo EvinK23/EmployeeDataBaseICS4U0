@@ -765,9 +765,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         
-        String dataFile = "D://Netbeans Projects//EmployeeDataBaseICS4U0//src//data//data.txt.";
+        File dataFile = new File ("src/data.txt");
         
         try {
+            if (!dataFile.exists()){
+                File data = new File ("src\\data.txt");
+            
+                data.getParentFile().mkdirs();
+                data.createNewFile();
+            }
             FileWriter fileWriter = new FileWriter(dataFile);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             
@@ -813,22 +819,11 @@ public class MainFrame extends javax.swing.JFrame {
 			
 		}
             bufferedWriter.close();
-            /*
-            Integer.parseInt(partTimeAgeTextField.getText()), 
-                                          Integer.parseInt(partTimeEmployeeNumberTextField.getText()),
-                                          partTimeSexComboBox.getSelectedIndex(),
-                                          partTimeWorkLocationComboBox.getSelectedIndex(),
-                                          Double.parseDouble(partTimeDeductionRateTextField.getText()),
-                                          partTimeFirstNameTextField.getText(),
-                                          partTimeLastNameTextField.getText(),
-                                          Double.parseDouble(partTimeHourlyWageTextField.getText()),
-                                          Double.parseDouble(partTimeHoursPerWeekTextField.getText()),
-                                          Double.parseDouble(partTimeWeeksPerYearTextField.getText()));
-            
-            */
-            
+        
         } catch (IOException ex) {
-            System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
+            System.out.println("you fucked up, couldn't write to '" + dataFile + "'");  
+            
+            
         }
         
         
@@ -844,11 +839,17 @@ public class MainFrame extends javax.swing.JFrame {
         
         
         
-        String dataFile = "D://Netbeans Projects//EmployeeDataBaseICS4U0//src//data//data.txt.";
+        File dataFile = new File("src/data.txt");
         
         String line = null;
         
         try {
+            if (!dataFile.exists()){
+                File data = new File ("src\\data.txt");
+            
+                data.getParentFile().mkdirs();
+                data.createNewFile();
+            }
             FileReader fileReader = new FileReader(dataFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
