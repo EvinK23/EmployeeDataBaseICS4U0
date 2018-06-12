@@ -1165,9 +1165,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         
-        String dataFile = "C://Users//faari//Documents//NetBeansProjects//EmployeeDataBaseICS4U0//src//data//data.txt";
+         File dataFile = new File ("src/data.txt");
         
         try {
+            if (!dataFile.exists()){
+                File data = new File ("src\\data.txt");
+            
+                data.getParentFile().mkdirs();
+                data.createNewFile();
+            }
             FileWriter fileWriter = new FileWriter(dataFile);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             
@@ -1231,7 +1237,7 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
         }
         
-        
+        reloadTable();
         
         
         
@@ -1242,13 +1248,18 @@ public class MainFrame extends javax.swing.JFrame {
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
         // TODO add your handling code here:
         
-        
-        
-        String dataFile = "C://Users//faari//Documents//NetBeansProjects//EmployeeDataBaseICS4U0//src//data//data.txt";
+        theTable = new MyHashTable(2);
+        File dataFile = new File("src/data.txt");
         
         String line = null;
         
         try {
+            if (!dataFile.exists()){
+                File data = new File ("src\\data.txt");
+            
+                data.getParentFile().mkdirs();
+                data.createNewFile();
+            }
             FileReader fileReader = new FileReader(dataFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
@@ -1292,6 +1303,8 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
         }
+        
+        reloadTable();
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
