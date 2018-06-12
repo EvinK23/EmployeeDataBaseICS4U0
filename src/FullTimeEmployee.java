@@ -11,5 +11,12 @@ public class FullTimeEmployee extends EmployeeInfo{
 	public double calcAnnualGrossIncome() {
 		return this.yearlySalary;
 	}
+        
+        public double getYearlySalary() {
+            return this.yearlySalary;
+        }
 	
+        public void getYearlySalary(double yearlySalary) {
+            this.yearlySalary = yearlySalary;
+        }
 }
