@@ -59,9 +59,9 @@ public class MyHashTable {
 		return array;
 	}
 	
-	public EmployeeInfo findStudent(int studentNumber) {
-		int bucket = calcBucket(studentNumber);
-		int index = findIndex(studentNumber);
+	public EmployeeInfo findEmployee(int employeeNumber) {
+		int bucket = calcBucket(employeeNumber);
+		int index = findIndex(employeeNumber);
 		
 		return hashTable[bucket].get(index);
 	}
@@ -80,4 +80,10 @@ public class MyHashTable {
 	public int calcBucket(int studentNum) {
 		return studentNum % numOfBuckets;
 	}
+        
+        public int getNumInTable () {
+            return this.numInTable;
+        }
+
+        
 }
