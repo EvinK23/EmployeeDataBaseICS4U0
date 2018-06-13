@@ -18,7 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MyHashTable theTable = new MyHashTable(2);
-    
+    int originalEmpNum;
     //constructor
     public MainFrame() {
         initComponents();
@@ -145,6 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
         fullTimeAgeLable2 = new javax.swing.JLabel();
         fullTimeAgeTextField1 = new javax.swing.JTextField();
         fullTimeAddedLabel1 = new javax.swing.JLabel();
+        convertToPartTime = new javax.swing.JButton();
         editPartTime = new javax.swing.JFrame();
         partTimeFristNameLabel1 = new javax.swing.JLabel();
         partTimeLastNameLabel1 = new javax.swing.JLabel();
@@ -169,6 +170,7 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeAgeTextField1 = new javax.swing.JTextField();
         fullTimeAgeLable3 = new javax.swing.JLabel();
         partTimeAddedLabel1 = new javax.swing.JLabel();
+        convertToFullTimeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
@@ -657,6 +659,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         fullTimeAgeLable2.setText("Age");
 
+        convertToPartTime.setText("Convert to Part-time");
+        convertToPartTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convertToPartTimeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout editFullTimeLayout = new javax.swing.GroupLayout(editFullTime.getContentPane());
         editFullTime.getContentPane().setLayout(editFullTimeLayout);
         editFullTimeLayout.setHorizontalGroup(
@@ -667,6 +676,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editFullTimeLayout.createSequentialGroup()
                         .addComponent(fullTimeCancelButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(convertToPartTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fullTimeAddButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editFullTimeLayout.createSequentialGroup()
                         .addGap(0, 4, Short.MAX_VALUE)
@@ -748,7 +759,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addGroup(editFullTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeCancelButton1)
-                    .addComponent(fullTimeAddButton1))
+                    .addComponent(fullTimeAddButton1)
+                    .addComponent(convertToPartTime))
                 .addContainerGap())
         );
 
@@ -798,6 +810,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         fullTimeAgeLable3.setText("Age");
 
+        convertToFullTimeButton.setText("Convert To Full-time");
+        convertToFullTimeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convertToFullTimeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout editPartTimeLayout = new javax.swing.GroupLayout(editPartTime.getContentPane());
         editPartTime.getContentPane().setLayout(editPartTimeLayout);
         editPartTimeLayout.setHorizontalGroup(
@@ -808,6 +827,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPartTimeLayout.createSequentialGroup()
                         .addComponent(partTimeCancelButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(convertToFullTimeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(partTimeAddButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPartTimeLayout.createSequentialGroup()
                         .addGap(0, 12, Short.MAX_VALUE)
@@ -904,7 +925,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(editPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeAddButton1)
-                    .addComponent(partTimeCancelButton1))
+                    .addComponent(partTimeCancelButton1)
+                    .addComponent(convertToFullTimeButton))
                 .addContainerGap())
         );
 
@@ -1095,7 +1117,7 @@ public class MainFrame extends javax.swing.JFrame {
             employeeNumberExistsFrame.setVisible(true);
         } else {
          
-         
+        
         
             
             
@@ -1334,6 +1356,7 @@ public class MainFrame extends javax.swing.JFrame {
                 
                 editPartTime.setVisible(true);
                 
+                originalEmpNum = empNum;
             } else if (emp instanceof FullTimeEmployee) {
                 
                 FullTimeEmployee fullEmp = (FullTimeEmployee) emp;
@@ -1346,7 +1369,9 @@ public class MainFrame extends javax.swing.JFrame {
                 fullTimeWorkLocationComboBox1.setSelectedIndex(fullEmp.getWorkLocation());
                 fullTimeAgeTextField1.setText(String.valueOf(fullEmp.getAge()));
                 fullTimeDeductionRateTextField1.setText(String.valueOf(fullEmp.getDeductionsRate()));
-                fullTimeYearlySalaryTextField1.setText(String.valueOf(fullEmp.getYearlySalary())); 
+                fullTimeYearlySalaryTextField1.setText(String.valueOf(fullEmp.getYearlySalary()));
+                
+                originalEmpNum = empNum;
             }
             
         }
@@ -1360,7 +1385,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_fullTimeAddButton1MouseExited
 
     private void fullTimeAddButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeAddButton1ActionPerformed
-        int originalEmpNum = Integer.parseInt(fullTimeEmployeeNumberTextField1.getText());
+        
         
         
         if (fullTimeFirstNameTextField1.getText().isEmpty()) {
@@ -1404,8 +1429,6 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_partTimeAddButton1MouseExited
 
     private void partTimeAddButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeAddButton1ActionPerformed
-        int originalEmpNum = Integer.parseInt(partTimeEmployeeNumberTextField1.getText());
-        
         
         if (partTimeFirstNameTextField1.getText().isEmpty()) {
             missingFrame.setVisible(true);
@@ -1442,6 +1465,7 @@ public class MainFrame extends javax.swing.JFrame {
          reloadTable();
 
         partTimeAddedLabel1.setText("Employee has been edited.");
+        editFullTime.setVisible(false);
         }
     }//GEN-LAST:event_partTimeAddButton1ActionPerformed
 
@@ -1452,6 +1476,47 @@ public class MainFrame extends javax.swing.JFrame {
     private void confirmButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButtonMouseExited
         jLabel2.setText("");
     }//GEN-LAST:event_confirmButtonMouseExited
+
+    private void convertToFullTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertToFullTimeButtonActionPerformed
+
+        editFullTime.setVisible(true);
+        
+        int empNum = originalEmpNum;
+        
+        EmployeeInfo emp = theTable.findEmployee(empNum);
+        
+        editFullTime.setVisible(true);
+        fullTimeFirstNameTextField1.setText(emp.getFirstName());
+        fullTimeLastNameTextField1.setText(emp.getLastName());
+        fullTimeEmployeeNumberTextField1.setText(String.valueOf(emp.getEmployeeNumber()));
+        fullTimeSexComboBox1.setSelectedIndex(emp.getSex());
+        fullTimeWorkLocationComboBox1.setSelectedIndex(emp.getWorkLocation());
+        fullTimeAgeTextField1.setText(String.valueOf(emp.getAge()));
+        fullTimeDeductionRateTextField1.setText(String.valueOf(emp.getDeductionsRate()));
+        
+        
+        
+    }//GEN-LAST:event_convertToFullTimeButtonActionPerformed
+
+    private void convertToPartTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertToPartTimeActionPerformed
+        
+        editPartTime.setVisible(true);
+        
+        int empNum = originalEmpNum;
+        
+        EmployeeInfo emp = theTable.findEmployee(empNum);
+        
+        partTimeFirstNameTextField1.setText(emp.getFirstName());
+        partTimeLastNameTextField1.setText(emp.getLastName());
+        partTimeEmployeeNumberTextField1.setText(String.valueOf(emp.getEmployeeNumber()));
+        partTimeSexComboBox1.setSelectedIndex(emp.getSex());
+        partTimeWorkLocationComboBox1.setSelectedIndex(emp.getWorkLocation());
+        partTimeAgeTextField1.setText(String.valueOf(emp.getAge()));
+        partTimeDeductionRateTextField1.setText(String.valueOf(emp.getDeductionsRate()));
+        
+        //editPartTime.dispose();
+        
+    }//GEN-LAST:event_convertToPartTimeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1493,6 +1558,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame addFullTime;
     private javax.swing.JFrame addPartTime;
     private javax.swing.JButton confirmButton;
+    private javax.swing.JButton convertToFullTimeButton;
+    private javax.swing.JButton convertToPartTime;
     private javax.swing.JButton editButton;
     private javax.swing.JFrame editFullTime;
     private javax.swing.JFrame editPartTime;
