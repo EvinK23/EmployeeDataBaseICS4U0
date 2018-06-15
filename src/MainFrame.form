@@ -728,6 +728,8 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="fullTimeCancelButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="convertToPartTime" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="fullTimeAddButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -835,6 +837,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="fullTimeCancelButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fullTimeAddButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="convertToPartTime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -941,6 +944,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="fullTimeAddedLabel1">
         </Component>
+        <Component class="javax.swing.JButton" name="convertToPartTime">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Convert to Part-time"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="convertToPartTimeActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="editPartTime">
@@ -960,6 +971,8 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="partTimeCancelButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="convertToFullTimeButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="partTimeAddButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -1084,6 +1097,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="partTimeAddButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="partTimeCancelButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="convertToFullTimeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1204,6 +1218,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="partTimeAddedLabel1">
         </Component>
+        <Component class="javax.swing.JButton" name="convertToFullTimeButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Convert To Full-time"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="convertToFullTimeButtonActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </NonVisualComponents>
@@ -1234,7 +1256,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -1254,7 +1276,7 @@
                               </Group>
                           </Group>
                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" alignment="0" min="-2" pref="738" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -1647,10 +1669,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="partTimePannel" alignment="0" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="fullTimePannel" min="-2" pref="214" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="fullTimePannel" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1658,10 +1677,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="partTimePannel" alignment="0" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="fullTimePannel" min="-2" pref="176" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="fullTimePannel" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1700,7 +1716,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="salaryTextBox" pref="133" max="32767" attributes="0"/>
+                              <Component id="salaryTextBox" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
