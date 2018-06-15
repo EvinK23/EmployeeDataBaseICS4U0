@@ -49,10 +49,14 @@ public class MainFrame extends javax.swing.JFrame {
         addFullTime.setVisible(false);
         addPartTime.setVisible(false);
         missingFrame.setVisible(false);
+        fullTimePannel.setVisible(false); 
 
         addFullTime.setSize(430,490);
         addPartTime.setSize(430,490);
         missingFrame.setSize(400,150);
+        fullTimePannel.setSize(224,187);
+        partTimePannel.setSize(224,187);
+        
     }
     
   
@@ -176,6 +180,41 @@ public class MainFrame extends javax.swing.JFrame {
         saveButton = new javax.swing.JButton();
         loadButton = new javax.swing.JToggleButton();
         editButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        label1 = new java.awt.Label();
+        jTextField1 = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        firstNameTextBox = new javax.swing.JTextField();
+        lastNameTextBox = new javax.swing.JTextField();
+        ageTextBox = new javax.swing.JTextField();
+        deductionsTextBox = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        sexComboBox = new javax.swing.JComboBox<>();
+        workLocationComboBox = new javax.swing.JComboBox<>();
+        fullTimePannelButton = new javax.swing.JButton();
+        partTimePannelButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        fullTimePannel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        salaryTextBox = new javax.swing.JTextField();
+        textField1 = new javax.swing.JLabel();
+        fullTimeIncomeTextBox = new javax.swing.JTextField();
+        partTimePannel = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
 
         fullTime.setText("Add Full-Time Employee");
         fullTime.addActionListener(new java.awt.event.ActionListener() {
@@ -346,6 +385,11 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeSexComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
 
         partTimeWorkLocationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mississauga", "Ottawa", "Chicago" }));
+        partTimeWorkLocationComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partTimeWorkLocationComboBoxActionPerformed(evt);
+            }
+        });
 
         partTimeHourlyWageLable.setText("Hourly Wage");
 
@@ -956,12 +1000,302 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        label1.setText("Employee Number:");
+
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(searchButton)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton))
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel3.setText("First Name:");
+
+        jLabel4.setText("Age:");
+
+        jLabel5.setText("Sex:");
+
+        jLabel6.setText("Last Name:");
+
+        jLabel8.setText("Deductions Rate:");
+
+        firstNameTextBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameTextBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Work Location:");
+
+        sexComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Other", "Male", "Female" }));
+        sexComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sexComboBoxActionPerformed(evt);
+            }
+        });
+
+        workLocationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mississauga", "Ottawa", "Chicago" }));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ageTextBox, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                    .addComponent(firstNameTextBox)
+                    .addComponent(sexComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lastNameTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deductionsTextBox, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(workLocationComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(28, 28, 28))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6)
+                    .addComponent(firstNameTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(deductionsTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(ageTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7)
+                    .addComponent(sexComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(workLocationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
+        );
+
+        fullTimePannelButton.setText("Full-Time");
+        fullTimePannelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullTimePannelButtonActionPerformed(evt);
+            }
+        });
+
+        partTimePannelButton.setText("Part-Time");
+        partTimePannelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partTimePannelButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Employees");
+
+        fullTimePannel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        fullTimePannel.setMaximumSize(new java.awt.Dimension(224, 187));
+        fullTimePannel.setMinimumSize(new java.awt.Dimension(224, 187));
+        fullTimePannel.setPreferredSize(new java.awt.Dimension(224, 187));
+
+        jLabel10.setText("Yearly Salary:");
+
+        textField1.setText("Gross Income:");
+
+        javax.swing.GroupLayout fullTimePannelLayout = new javax.swing.GroupLayout(fullTimePannel);
+        fullTimePannel.setLayout(fullTimePannelLayout);
+        fullTimePannelLayout.setHorizontalGroup(
+            fullTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fullTimePannelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fullTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fullTimePannelLayout.createSequentialGroup()
+                        .addComponent(textField1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fullTimeIncomeTextBox, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(fullTimePannelLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(salaryTextBox, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))))
+        );
+        fullTimePannelLayout.setVerticalGroup(
+            fullTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fullTimePannelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(fullTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(salaryTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(fullTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textField1)
+                    .addComponent(fullTimeIncomeTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
+        );
+
+        partTimePannel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel11.setText("Hourly Wage:");
+
+        jLabel12.setText("Hours Per Week:");
+
+        jLabel13.setText("Weeks Per Year:");
+
+        jLabel14.setText("Gross Income:");
+
+        jTextField2.setText("jTextField2");
+
+        jTextField3.setText("jTextField3");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jTextField4.setText("jTextField4");
+
+        jTextField5.setText("jTextField5");
+
+        javax.swing.GroupLayout partTimePannelLayout = new javax.swing.GroupLayout(partTimePannel);
+        partTimePannel.setLayout(partTimePannelLayout);
+        partTimePannelLayout.setHorizontalGroup(
+            partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(partTimePannelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(partTimePannelLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                    .addGroup(partTimePannelLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField5))
+                    .addGroup(partTimePannelLayout.createSequentialGroup()
+                        .addGroup(partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField4)
+                            .addComponent(jTextField2))))
+                .addContainerGap())
+        );
+        partTimePannelLayout.setVerticalGroup(
+            partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(partTimePannelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(partTimePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
+        );
+
+        jLayeredPane1.setLayer(fullTimePannel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(partTimePannel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(partTimePannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addComponent(fullTimePannel, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(partTimePannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addComponent(fullTimePannel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(47, 47, 47)
+                                        .addComponent(fullTimePannelButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(partTimePannelButton))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel9)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(291, 291, 291)
                         .addComponent(addButton)
@@ -973,26 +1307,36 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(saveButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(loadButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(loadButton)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loadButton)
-                    .addComponent(saveButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveButton)
+                    .addComponent(loadButton))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fullTimePannelButton)
+                    .addComponent(partTimePannelButton))
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
                     .addComponent(removeButton)
                     .addComponent(editButton))
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -1453,6 +1797,40 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2.setText("");
     }//GEN-LAST:event_confirmButtonMouseExited
 
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void firstNameTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameTextBoxActionPerformed
+
+    private void sexComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sexComboBoxActionPerformed
+
+    private void partTimeWorkLocationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeWorkLocationComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_partTimeWorkLocationComboBoxActionPerformed
+
+    private void fullTimePannelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimePannelButtonActionPerformed
+        // TODO add your handling code here:
+        fullTimePannel.setVisible(true);
+        partTimePannel.setVisible(false);
+    }//GEN-LAST:event_fullTimePannelButtonActionPerformed
+
+    private void partTimePannelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimePannelButtonActionPerformed
+        // TODO add your handling code here:
+        fullTimePannel.setVisible(false);
+        partTimePannel.setVisible(true);
+    }//GEN-LAST:event_partTimePannelButtonActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1492,13 +1870,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JFrame addFullTime;
     private javax.swing.JFrame addPartTime;
+    private javax.swing.JTextField ageTextBox;
     private javax.swing.JButton confirmButton;
+    private javax.swing.JTextField deductionsTextBox;
     private javax.swing.JButton editButton;
     private javax.swing.JFrame editFullTime;
     private javax.swing.JFrame editPartTime;
     private javax.swing.JTextField employeeNumTextBox;
     private javax.swing.JFrame employeeNumberExistsFrame;
     private javax.swing.JLabel employeeNumberExistsLabel;
+    private javax.swing.JTextField firstNameTextBox;
     private javax.swing.JMenuItem fullTime;
     private javax.swing.JButton fullTimeAddButton;
     private javax.swing.JButton fullTimeAddButton1;
@@ -1524,10 +1905,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField fullTimeFirstNameTextField1;
     private javax.swing.JLabel fullTimeFristNameLabel;
     private javax.swing.JLabel fullTimeFristNameLabel1;
+    private javax.swing.JTextField fullTimeIncomeTextBox;
     private javax.swing.JLabel fullTimeLastNameLabel;
     private javax.swing.JLabel fullTimeLastNameLabel1;
     private javax.swing.JTextField fullTimeLastNameTextField;
     private javax.swing.JTextField fullTimeLastNameTextField1;
+    private javax.swing.JPanel fullTimePannel;
+    private javax.swing.JButton fullTimePannelButton;
     private javax.swing.JComboBox<String> fullTimeSexComboBox;
     private javax.swing.JComboBox<String> fullTimeSexComboBox1;
     private javax.swing.JLabel fullTimeSexLabel;
@@ -1543,9 +1927,31 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable hashTable;
     private javax.swing.JLabel invalidEmployeeLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupAdd;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private java.awt.Label label1;
+    private javax.swing.JTextField lastNameTextBox;
     private javax.swing.JToggleButton loadButton;
     private javax.swing.JFrame missingFrame;
     private javax.swing.JButton missingFrameOkButton;
@@ -1584,6 +1990,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel partTimeLastNameLabel1;
     private javax.swing.JTextField partTimeLastNameTextField;
     private javax.swing.JTextField partTimeLastNameTextField1;
+    private javax.swing.JPanel partTimePannel;
+    private javax.swing.JButton partTimePannelButton;
     private javax.swing.JComboBox<String> partTimeSexComboBox;
     private javax.swing.JComboBox<String> partTimeSexComboBox1;
     private javax.swing.JLabel partTimeSexLabel;
@@ -1598,6 +2006,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel partTimeWorkLocationLabel1;
     private javax.swing.JButton removeButton;
     private javax.swing.JFrame removeFrame;
+    private javax.swing.JTextField salaryTextBox;
     private javax.swing.JButton saveButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JComboBox<String> sexComboBox;
+    private javax.swing.JLabel textField1;
+    private javax.swing.JComboBox<String> workLocationComboBox;
     // End of variables declaration//GEN-END:variables
 }
