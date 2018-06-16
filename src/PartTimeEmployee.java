@@ -12,7 +12,7 @@ public class PartTimeEmployee extends EmployeeInfo{
 	}
 	
 	public double calcAnnualGrossIncome() {
-		return hourlyWage*hoursPerWeek*weeksPerYear;
+		return hourlyWage*hoursPerWeek*weeksPerYear*(1-getDeductionsRate());
 	}
         
         //get
