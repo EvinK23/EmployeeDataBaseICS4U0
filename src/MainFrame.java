@@ -50,6 +50,7 @@ public class MainFrame extends javax.swing.JFrame {
         addPartTime.setVisible(false);
         missingFrame.setVisible(false);
         fullTimePannel.setVisible(false); 
+        invalidEmployeeLabel.setVisible(false);
 
         addFullTime.setSize(430,490);
         addPartTime.setSize(430,490);
@@ -57,6 +58,23 @@ public class MainFrame extends javax.swing.JFrame {
         fullTimePannel.setSize(224,187);
         partTimePannel.setSize(224,187);
         
+    }
+    
+    public void clearSearch () {
+        firstNameTB.setText(null);
+        lastNameTB.setText(null);
+        sexComboBox.setSelectedIndex(2);
+        workLocationComboBox.setSelectedIndex(0);
+        ageTB.setText(null);
+        deductionsRateTB.setText(null);
+        HourlyWageTB.setText(null);
+        hoursPerWeekTB.setText(null);
+        weeksPerYearTB.setText(null);
+        partTimeIncomeTB.setText(null);
+
+        salaryTB.setText(null);
+        fullTimeIncomeTB.setText(null);
+        searchTB.setText(null);
     }
     
   
@@ -218,6 +236,7 @@ public class MainFrame extends javax.swing.JFrame {
         partTimeIncomeTB = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
+        clearTB = new javax.swing.JButton();
 
         fullTime.setText("Add Full-Time Employee");
         fullTime.addActionListener(new java.awt.event.ActionListener() {
@@ -564,8 +583,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         removeFrame.setBounds(new java.awt.Rectangle(370, 400, 400, 400));
         removeFrame.setResizable(false);
+        removeFrame.setSize(new java.awt.Dimension(402, 129));
 
-        jLabel2.setText("Employee Number");
+        jLabel2.setText("Employee Number:");
 
         employeeNumTextBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -587,37 +607,37 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        invalidEmployeeLabel.setText("The entered employee does not exist");
+
         javax.swing.GroupLayout removeFrameLayout = new javax.swing.GroupLayout(removeFrame.getContentPane());
         removeFrame.getContentPane().setLayout(removeFrameLayout);
         removeFrameLayout.setHorizontalGroup(
             removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(removeFrameLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addGroup(removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(removeFrameLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(employeeNumTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(removeFrameLayout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(invalidEmployeeLabel))
-                    .addGroup(removeFrameLayout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addComponent(invalidEmployeeLabel)
+                    .addComponent(employeeNumTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, removeFrameLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
         );
         removeFrameLayout.setVerticalGroup(
             removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(removeFrameLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(removeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(employeeNumTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                .addComponent(invalidEmployeeLabel)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(invalidEmployeeLabel)
+                .addGap(22, 22, 22))
         );
 
         employeeNumberExistsFrame.setSize(new java.awt.Dimension(398, 250));
@@ -1286,6 +1306,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel15.setText("Employee Data");
 
+        clearTB.setText("Clear");
+        clearTB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearTBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1310,7 +1337,10 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jLabel9)
                             .addComponent(jScrollPane2)
-                            .addComponent(jLabel15)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(clearTB))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(291, 291, 291)
                         .addComponent(addButton)
@@ -1342,7 +1372,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimePannelButton)
                     .addComponent(partTimePannelButton)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(clearTB))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1499,29 +1530,28 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
+        
+        if (searchTB.getText().isEmpty()) {
         removeFrame.setVisible(true);
-    }//GEN-LAST:event_removeButtonActionPerformed
-
-    private void employeeNumTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNumTextBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_employeeNumTextBoxActionPerformed
-
-    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
-        if (theTable.findIndex(Integer.parseInt(employeeNumTextBox.getText())) == -1) {
-            invalidEmployeeLabel.setText("The entered employee does not exist");
+            
         }
-        
+
         else {
-        theTable.removeFromHashTable(Integer.parseInt(employeeNumTextBox.getText()));
-        removeFrame.setVisible(false);
-        employeeNumTextBox.setText(null);
+            
+            if (theTable.findIndex(Integer.parseInt(searchTB.getText())) == -1) {
+              invalidEmployeeLabel.setText("The entered employee does not exist");
+             }
+        
+            else {
+            theTable.removeFromHashTable(Integer.parseInt(searchTB.getText()));
+            employeeNumTextBox.setText(null);
  
-        reloadTable();
+            reloadTable();
+            clearSearch ();
         
+            }
         }
-        
-    }//GEN-LAST:event_confirmButtonActionPerformed
+    }//GEN-LAST:event_removeButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         
@@ -1751,10 +1781,6 @@ public class MainFrame extends javax.swing.JFrame {
         editPartTime.setVisible(false);
     }//GEN-LAST:event_partTimeCancelButton1ActionPerformed
 
-    private void confirmButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButtonMouseExited
-        jLabel2.setText("");
-    }//GEN-LAST:event_confirmButtonMouseExited
-
     private void convertToFullTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertToFullTimeButtonActionPerformed
 
         editFullTime.setVisible(true);
@@ -1936,6 +1962,37 @@ public class MainFrame extends javax.swing.JFrame {
         reloadTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void clearTBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTBActionPerformed
+        // TODO add your handling code here:
+               clearSearch ();
+    }//GEN-LAST:event_clearTBActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here:
+        if (theTable.findIndex(Integer.parseInt(employeeNumTextBox.getText())) == -1) {
+            invalidEmployeeLabel.setVisible(true);
+        }
+
+        else {
+            theTable.removeFromHashTable(Integer.parseInt(employeeNumTextBox.getText()));
+            removeFrame.setVisible(false);
+            employeeNumTextBox.setText(null);
+            invalidEmployeeLabel.setVisible(false);
+
+            reloadTable();
+
+        }
+
+    }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void confirmButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButtonMouseExited
+        jLabel2.setText("");
+    }//GEN-LAST:event_confirmButtonMouseExited
+
+    private void employeeNumTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNumTextBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeNumTextBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1977,6 +2034,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame addFullTime;
     private javax.swing.JFrame addPartTime;
     private javax.swing.JTextField ageTB;
+    private javax.swing.JButton clearTB;
     private javax.swing.JButton confirmButton;
     private javax.swing.JButton convertToFullTimeButton;
     private javax.swing.JButton convertToPartTime;
