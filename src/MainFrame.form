@@ -1277,6 +1277,7 @@
                           </Group>
                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -1291,7 +1292,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="saveButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="loadButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
@@ -1304,7 +1305,7 @@
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="loadButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -1316,19 +1317,20 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fullTimePannelButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="partTimePannelButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="77" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="removeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="editButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -1412,14 +1414,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="loadButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Load"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadButtonActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="editButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Edit"/>
@@ -1444,7 +1438,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="label1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Component id="searchTB" min="-2" pref="158" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="searchButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -1457,7 +1451,7 @@
                   <EmptySpace pref="21" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="searchTB" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="label1" min="-2" max="-2" attributes="0"/>
@@ -1473,7 +1467,7 @@
             <Property name="text" type="java.lang.String" value="Employee Number:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="searchTB">
         </Component>
         <Component class="javax.swing.JButton" name="searchButton">
           <Properties>
@@ -1506,8 +1500,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ageTextBox" pref="135" max="32767" attributes="0"/>
-                      <Component id="firstNameTextBox" max="32767" attributes="0"/>
+                      <Component id="ageTB" pref="135" max="32767" attributes="0"/>
+                      <Component id="firstNameTB" max="32767" attributes="0"/>
                       <Component id="sexComboBox" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="64" max="32767" attributes="0"/>
@@ -1515,7 +1509,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lastNameTextBox" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="lastNameTB" min="-2" pref="135" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -1524,7 +1518,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="deductionsTextBox" pref="135" max="32767" attributes="0"/>
+                              <Component id="deductionsRateTB" pref="135" max="32767" attributes="0"/>
                               <Component id="workLocationComboBox" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1540,18 +1534,18 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="firstNameTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lastNameTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="firstNameTB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lastNameTB" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="deductionsTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="deductionsRateTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ageTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ageTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -1592,16 +1586,16 @@
             <Property name="text" type="java.lang.String" value="Deductions Rate:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="firstNameTextBox">
+        <Component class="javax.swing.JTextField" name="firstNameTB">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameTextBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameTBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="lastNameTextBox">
+        <Component class="javax.swing.JTextField" name="lastNameTB">
         </Component>
-        <Component class="javax.swing.JTextField" name="ageTextBox">
+        <Component class="javax.swing.JTextField" name="ageTB">
         </Component>
-        <Component class="javax.swing.JTextField" name="deductionsTextBox">
+        <Component class="javax.swing.JTextField" name="deductionsRateTB">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -1612,9 +1606,9 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="Other"/>
-                <StringItem index="1" value="Male"/>
-                <StringItem index="2" value="Female"/>
+                <StringItem index="0" value="Male"/>
+                <StringItem index="1" value="Female"/>
+                <StringItem index="2" value="Other"/>
               </StringArray>
             </Property>
           </Properties>
@@ -1710,13 +1704,13 @@
                           <Group type="102" attributes="0">
                               <Component id="textField1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="fullTimeIncomeTextBox" pref="121" max="32767" attributes="0"/>
+                              <Component id="fullTimeIncomeTB" pref="121" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="salaryTextBox" max="32767" attributes="0"/>
+                              <Component id="salaryTB" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1728,12 +1722,12 @@
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="salaryTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="salaryTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="79" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="textField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fullTimeIncomeTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fullTimeIncomeTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
@@ -1746,14 +1740,14 @@
                 <Property name="text" type="java.lang.String" value="Yearly Salary:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="salaryTextBox">
+            <Component class="javax.swing.JTextField" name="salaryTB">
             </Component>
             <Component class="javax.swing.JLabel" name="textField1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gross Income:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="fullTimeIncomeTextBox">
+            <Component class="javax.swing.JTextField" name="fullTimeIncomeTB">
             </Component>
           </SubComponents>
         </Container>
@@ -1776,13 +1770,13 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField3" pref="109" max="32767" attributes="0"/>
+                              <Component id="HourlyWageTB" pref="109" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField5" max="32767" attributes="0"/>
+                              <Component id="partTimeIncomeTB" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1791,8 +1785,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField4" max="32767" attributes="0"/>
-                                  <Component id="jTextField2" max="32767" attributes="0"/>
+                                  <Component id="weeksPerYearTB" max="32767" attributes="0"/>
+                                  <Component id="hoursPerWeekTB" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1806,22 +1800,22 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="HourlyWageTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="hoursPerWeekTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="weeksPerYearTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="partTimeIncomeTB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
@@ -1849,32 +1843,33 @@
                 <Property name="text" type="java.lang.String" value="Gross Income:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="hoursPerWeekTB">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField3"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="HourlyWageTB">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HourlyWageTBActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="weeksPerYearTB">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField5"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="partTimeIncomeTB">
             </Component>
           </SubComponents>
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Load"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Employee Data"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
