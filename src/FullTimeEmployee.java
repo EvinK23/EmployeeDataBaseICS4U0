@@ -9,7 +9,7 @@ public class FullTimeEmployee extends EmployeeInfo{
 	}
 
 	public double calcAnnualGrossIncome() {
-		return this.yearlySalary;
+		return this.yearlySalary*(1-getDeductionsRate());
 	}
         
         public double getYearlySalary() {
