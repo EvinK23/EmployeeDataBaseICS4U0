@@ -62,6 +62,10 @@ public class MyHashTable {
 	public EmployeeInfo findEmployee(int employeeNumber) {
 		int bucket = calcBucket(employeeNumber);
 		int index = findIndex(employeeNumber);
+                
+                if (index == -1) {
+                    return null;
+                }
 		
 		return hashTable[bucket].get(index);
 	}
