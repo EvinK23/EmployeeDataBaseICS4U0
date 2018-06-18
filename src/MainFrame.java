@@ -1964,7 +1964,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void fullTimeAddButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullTimeAddButton1MouseExited
-        // TODO add your handling code here:
+        fullTimeAddedLabel1.setText("");
     }//GEN-LAST:event_fullTimeAddButton1MouseExited
 
     private void fullTimeAddButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeAddButton1ActionPerformed
@@ -2317,6 +2317,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         File dataFile = new File("src/" + name + ".txt");
         
+        if (dataFile.exists()) {
         String line = null;
         
         try {
@@ -2374,6 +2375,13 @@ public class MainFrame extends javax.swing.JFrame {
         title.setText(databaseName);
         loadFrame.setVisible(false);
         loadDatabaseName.setText("");
+        }
+        
+        else {
+            
+            name = "";
+            databaseName = "";
+        }
     }//GEN-LAST:event_confirmLoadButtonActionPerformed
 
     private void deleteDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDatabaseButtonActionPerformed
