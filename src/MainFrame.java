@@ -18,6 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MyHashTable theTable = new MyHashTable(2);
+    String databaseName = new String();
     int originalEmpNum;
     //constructor
     public MainFrame() {
@@ -200,6 +201,17 @@ public class MainFrame extends javax.swing.JFrame {
         convertToFullTimeButton = new javax.swing.JButton();
         doesNotExist = new javax.swing.JFrame();
         jLabel16 = new javax.swing.JLabel();
+        saveAsFrame = new javax.swing.JFrame();
+        jLabel17 = new javax.swing.JLabel();
+        databaseNameTextField = new javax.swing.JTextField();
+        saveAsConfirmButton = new javax.swing.JButton();
+        loadFrame = new javax.swing.JFrame();
+        jLabel18 = new javax.swing.JLabel();
+        loadDatabaseName = new javax.swing.JTextField();
+        confirmLoadButton = new javax.swing.JButton();
+        deleteDBMessage = new javax.swing.JFrame();
+        jLabel19 = new javax.swing.JLabel();
+        ok = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
@@ -244,6 +256,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         partTimeLabel = new javax.swing.JLabel();
         fullTimeLabel = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        deleteDatabaseButton = new javax.swing.JButton();
 
         fullTime.setText("Add Full-Time Employee");
         fullTime.addActionListener(new java.awt.event.ActionListener() {
@@ -1021,6 +1035,128 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
+        saveAsFrame.setSize(new java.awt.Dimension(509, 200));
+
+        jLabel17.setText("Name your database. Please do not use any spaces or special characters.");
+
+        databaseNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                databaseNameTextFieldActionPerformed(evt);
+            }
+        });
+
+        saveAsConfirmButton.setText("Confirm");
+        saveAsConfirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsConfirmButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout saveAsFrameLayout = new javax.swing.GroupLayout(saveAsFrame.getContentPane());
+        saveAsFrame.getContentPane().setLayout(saveAsFrameLayout);
+        saveAsFrameLayout.setHorizontalGroup(
+            saveAsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saveAsFrameLayout.createSequentialGroup()
+                .addGroup(saveAsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(saveAsFrameLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel17))
+                    .addGroup(saveAsFrameLayout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(databaseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(saveAsFrameLayout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(saveAsConfirmButton)))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+        saveAsFrameLayout.setVerticalGroup(
+            saveAsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saveAsFrameLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(databaseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(saveAsConfirmButton)
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+
+        loadFrame.setSize(new java.awt.Dimension(400, 200));
+
+        jLabel18.setText("Enter the name of the database you wish to load.");
+
+        confirmLoadButton.setText("Confirm");
+        confirmLoadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmLoadButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loadFrameLayout = new javax.swing.GroupLayout(loadFrame.getContentPane());
+        loadFrame.getContentPane().setLayout(loadFrameLayout);
+        loadFrameLayout.setHorizontalGroup(
+            loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loadFrameLayout.createSequentialGroup()
+                .addGroup(loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(loadFrameLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(loadDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loadFrameLayout.createSequentialGroup()
+                            .addGap(78, 78, 78)
+                            .addComponent(jLabel18)))
+                    .addGroup(loadFrameLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(confirmLoadButton)))
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+        loadFrameLayout.setVerticalGroup(
+            loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loadFrameLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(loadDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(confirmLoadButton)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        deleteDBMessage.setSize(new java.awt.Dimension(432, 180));
+
+        jLabel19.setText("Your current database has been deleted. This action cannot be undone");
+
+        ok.setText("Ok");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout deleteDBMessageLayout = new javax.swing.GroupLayout(deleteDBMessage.getContentPane());
+        deleteDBMessage.getContentPane().setLayout(deleteDBMessageLayout);
+        deleteDBMessageLayout.setHorizontalGroup(
+            deleteDBMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteDBMessageLayout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addGroup(deleteDBMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteDBMessageLayout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteDBMessageLayout.createSequentialGroup()
+                        .addComponent(ok)
+                        .addGap(191, 191, 191))))
+        );
+        deleteDBMessageLayout.setVerticalGroup(
+            deleteDBMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteDBMessageLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(ok)
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EDMS - Employee Database Management System");
 
@@ -1347,10 +1483,33 @@ public class MainFrame extends javax.swing.JFrame {
 
         fullTimeLabel.setText("Full-Time");
 
+        jButton2.setText("Save As");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        deleteDatabaseButton.setText("Delete Database");
+        deleteDatabaseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteDatabaseButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(189, 189, 189)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(71, 71, 71))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -1361,12 +1520,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(saveButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(78, 78, 78)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))
@@ -1377,17 +1531,19 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(fullTimeLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(partTimeLabel)
-                                .addGap(63, 63, 63)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 73, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(189, 189, 189)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(71, 71, 71))
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(saveButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteDatabaseButton)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1395,8 +1551,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(jButton2)
+                    .addComponent(deleteDatabaseButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -1592,15 +1751,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         
-         File dataFile = new File ("src/data.txt");
+         File dataFile = new File ("src/" + databaseName + ".txt");
         
+         if (dataFile.exists()) {
         try {
-            if (!dataFile.exists()){
-                File data = new File ("src\\data.txt");
             
-                data.getParentFile().mkdirs();
-                data.createNewFile();
-            }
             FileWriter fileWriter = new FileWriter(dataFile);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             
@@ -1646,19 +1801,7 @@ public class MainFrame extends javax.swing.JFrame {
 			
 		}
             bufferedWriter.close();
-            /*
-            Integer.parseInt(partTimeAgeTextField.getText()), 
-                                          Integer.parseInt(partTimeEmployeeNumberTextField.getText()),
-                                          partTimeSexComboBox.getSelectedIndex(),
-                                          partTimeWorkLocationComboBox.getSelectedIndex(),
-                                          Double.parseDouble(partTimeDeductionRateTextField.getText()),
-                                          partTimeFirstNameTextField.getText(),
-                                          partTimeLastNameTextField.getText(),
-                                          Double.parseDouble(partTimeHourlyWageTextField.getText()),
-                                          Double.parseDouble(partTimeHoursPerWeekTextField.getText()),
-                                          Double.parseDouble(partTimeWeeksPerYearTextField.getText()));
             
-            */
             
         } catch (IOException ex) {
             System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
@@ -1666,7 +1809,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         reloadTable();
         
-        
+         }
         
         
         
@@ -1936,7 +2079,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         theTable = new MyHashTable(2);
+        loadFrame.setVisible(true);
+        /*
+        theTable = new MyHashTable(2);
         File dataFile = new File("src/data.txt");
         
         String line = null;
@@ -1993,6 +2138,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
         reloadTable();
+        */
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void clearTBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTBActionPerformed
@@ -2029,6 +2175,184 @@ public class MainFrame extends javax.swing.JFrame {
     private void ageTBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageTBActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         saveAsFrame.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void databaseNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_databaseNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_databaseNameTextFieldActionPerformed
+
+    private void saveAsConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsConfirmButtonActionPerformed
+        // TODO add your handling code here:
+        
+        String name = new String(databaseNameTextField.getText());
+        databaseName = databaseNameTextField.getText();
+                        
+        File dataFile = new File ("src/" + name + ".txt");
+        
+        try {
+            if (!dataFile.exists()){
+                File data = new File ("src\\" + name + ".txt");
+            
+                data.getParentFile().mkdirs();
+                data.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(dataFile);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            
+		for (int i = 0; i < theTable.getHashTable().length; i++) {
+			
+			for (int j = 0; j < theTable.getHashTable()[i].size();j++)
+			{
+                                if (theTable.getHashTable()[i].get(j) instanceof FullTimeEmployee) {
+                                    FullTimeEmployee tempFull = (FullTimeEmployee)theTable.getHashTable()[i].get(j);
+                                    
+                                    bufferedWriter.write("f" + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getAge()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getEmployeeNumber()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getSex()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempFull.getWorkLocation()) + "&");
+                                    bufferedWriter.write(Double.toString(tempFull.getDeductionsRate()) + "&");
+                                    bufferedWriter.write(tempFull.getFirstName() + "&");
+                                    bufferedWriter.write(tempFull.getLastName() + "&");
+                                    bufferedWriter.write(Double.toString(tempFull.calcAnnualGrossIncome()) + "&");
+                                    bufferedWriter.newLine();
+                                    
+                                }
+                                else if (theTable.getHashTable()[i].get(j) instanceof PartTimeEmployee){
+                                    PartTimeEmployee tempPart = (PartTimeEmployee)theTable.getHashTable()[i].get(j);
+                                    
+                                    bufferedWriter.write("p" + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getAge()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getEmployeeNumber()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getSex()) + "&");
+                                    bufferedWriter.write(Integer.toString(tempPart.getWorkLocation()) + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getDeductionsRate()) + "&");
+                                    bufferedWriter.write(tempPart.getFirstName() + "&");
+                                    bufferedWriter.write(tempPart.getLastName() + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getHourlyWage()) + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getHoursPerWeek()) + "&");
+                                    bufferedWriter.write(Double.toString(tempPart.getWeeksPerYear()) + "&");
+                                    bufferedWriter.newLine();
+                                    
+                                
+                            
+                                }
+			}
+			
+		}
+            bufferedWriter.close();
+            /*
+            Integer.parseInt(partTimeAgeTextField.getText()), 
+                                          Integer.parseInt(partTimeEmployeeNumberTextField.getText()),
+                                          partTimeSexComboBox.getSelectedIndex(),
+                                          partTimeWorkLocationComboBox.getSelectedIndex(),
+                                          Double.parseDouble(partTimeDeductionRateTextField.getText()),
+                                          partTimeFirstNameTextField.getText(),
+                                          partTimeLastNameTextField.getText(),
+                                          Double.parseDouble(partTimeHourlyWageTextField.getText()),
+                                          Double.parseDouble(partTimeHoursPerWeekTextField.getText()),
+                                          Double.parseDouble(partTimeWeeksPerYearTextField.getText()));
+            
+            */
+            
+        } catch (IOException ex) {
+            System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
+        }
+        
+        reloadTable();
+        
+        saveAsFrame.setVisible(false);
+    }//GEN-LAST:event_saveAsConfirmButtonActionPerformed
+
+    private void confirmLoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmLoadButtonActionPerformed
+        // TODO add your handling code here:
+        theTable = new MyHashTable(2);
+        
+        String name = new String(loadDatabaseName.getText());
+        databaseName = loadDatabaseName.getText();
+        
+        File dataFile = new File("src/" + name + ".txt");
+        
+        String line = null;
+        
+        try {
+            if (!dataFile.exists()){
+                File data = new File ("src\\" + name + ".txt");
+            
+                data.getParentFile().mkdirs();
+                data.createNewFile();
+            }
+            FileReader fileReader = new FileReader(dataFile);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            
+            while((line = bufferedReader.readLine()) != null) {
+                String [] lineData = line.split("&"); //splitting string by &
+                
+                if (lineData[0].equals("f")) {
+                    FullTimeEmployee somebody;
+                    somebody = new FullTimeEmployee (Integer.parseInt(lineData[1]), 
+                                                     Integer.parseInt(lineData[2]),
+                                                     Integer.parseInt(lineData[3]),
+                                                     Integer.parseInt(lineData[4]),
+                                                     Double.parseDouble(lineData[5]),
+                                                     lineData[6],
+                                                     lineData[7],
+                                                     Double.parseDouble(lineData[8]));
+                    theTable.addToHashTable(somebody);
+                    
+                }
+                
+                else if (lineData[0].equals("p")) {
+                    PartTimeEmployee somebody;
+                    somebody = new PartTimeEmployee (Integer.parseInt(lineData[1]), 
+                                                     Integer.parseInt(lineData[2]),
+                                                     Integer.parseInt(lineData[3]),
+                                                     Integer.parseInt(lineData[4]),
+                                                     Double.parseDouble(lineData[5]),
+                                                     lineData[6],
+                                                     lineData[7],
+                                                     Double.parseDouble(lineData[8]),
+                                                     Double.parseDouble(lineData[9]),
+                                                     Double.parseDouble(lineData[9]));
+                    theTable.addToHashTable(somebody);
+                    
+                }
+            
+		
+            }
+            bufferedReader.close();
+            
+        } catch (IOException ex) {
+            System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
+        }
+        
+        reloadTable();
+        loadFrame.setVisible(false);
+    }//GEN-LAST:event_confirmLoadButtonActionPerformed
+
+    private void deleteDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDatabaseButtonActionPerformed
+        // TODO add your handling code here:
+        
+        File file = new File("src/" + databaseName + ".txt");
+        file.delete();
+        
+        theTable = new MyHashTable(2);
+        reloadTable();
+        clearSearch ();
+        databaseName = null;
+        
+        deleteDBMessage.setVisible(true);
+        
+    }//GEN-LAST:event_deleteDatabaseButtonActionPerformed
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        // TODO add your handling code here:
+        deleteDBMessage.setVisible(false);
+    }//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2073,9 +2397,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField ageTB;
     private javax.swing.JButton clearTB;
     private javax.swing.JButton confirmButton;
+    private javax.swing.JButton confirmLoadButton;
     private javax.swing.JButton convertToFullTimeButton;
     private javax.swing.JButton convertToPartTime;
+    private javax.swing.JTextField databaseNameTextField;
     private javax.swing.JTextField deductionsRateTB;
+    private javax.swing.JFrame deleteDBMessage;
+    private javax.swing.JButton deleteDatabaseButton;
     private javax.swing.JFrame doesNotExist;
     private javax.swing.JButton editButton;
     private javax.swing.JFrame editFullTime;
@@ -2132,6 +2460,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField hoursPerWeekTB;
     private javax.swing.JLabel invalidEmployeeLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2140,6 +2469,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2155,10 +2487,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private java.awt.Label label1;
     private javax.swing.JTextField lastNameTB;
+    private javax.swing.JTextField loadDatabaseName;
+    private javax.swing.JFrame loadFrame;
     private javax.swing.JFrame missingFrame;
     private javax.swing.JButton missingFrameOkButton;
     private javax.swing.JFrame noEmployeeSelectedFrame;
     private javax.swing.JLabel noEmployeeSelectedLabel;
+    private javax.swing.JButton ok;
     private javax.swing.JMenuItem partTime;
     private javax.swing.JButton partTimeAddButton;
     private javax.swing.JButton partTimeAddButton1;
@@ -2210,6 +2545,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton removeButton;
     private javax.swing.JFrame removeFrame;
     private javax.swing.JTextField salaryTB;
+    private javax.swing.JButton saveAsConfirmButton;
+    private javax.swing.JFrame saveAsFrame;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTB;
