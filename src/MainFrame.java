@@ -153,7 +153,9 @@ public class MainFrame extends javax.swing.JFrame {
         employeeNumberExistsFrame = new javax.swing.JFrame();
         employeeNumberExistsLabel = new javax.swing.JLabel();
         noEmployeeSelectedFrame = new javax.swing.JFrame();
-        noEmployeeSelectedLabel = new javax.swing.JLabel();
+        searchEditEmployeeButton = new javax.swing.JButton();
+        searchEditEmployeeTextField = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
         editFullTime = new javax.swing.JFrame();
         fullTimeFristNameLabel1 = new javax.swing.JLabel();
         fullTimeLastNameLabel1 = new javax.swing.JLabel();
@@ -202,14 +204,17 @@ public class MainFrame extends javax.swing.JFrame {
         convertToFullTimeButton = new javax.swing.JButton();
         doesNotExist = new javax.swing.JFrame();
         jLabel16 = new javax.swing.JLabel();
+        doesNotExistOkButton = new javax.swing.JButton();
         saveAsFrame = new javax.swing.JFrame();
         jLabel17 = new javax.swing.JLabel();
         databaseNameTextField = new javax.swing.JTextField();
         saveAsConfirmButton = new javax.swing.JButton();
+        saveAsCancelButton = new javax.swing.JButton();
         loadFrame = new javax.swing.JFrame();
         jLabel18 = new javax.swing.JLabel();
         loadDatabaseName = new javax.swing.JTextField();
         confirmLoadButton = new javax.swing.JButton();
+        loadCancelButton = new javax.swing.JButton();
         deleteDBMessage = new javax.swing.JFrame();
         jLabel19 = new javax.swing.JLabel();
         ok = new javax.swing.JButton();
@@ -414,6 +419,10 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         addPartTime.setTitle("Add a Part-Time Employee");
+        addPartTime.setMinimumSize(new java.awt.Dimension(440, 530));
+        addPartTime.setPreferredSize(new java.awt.Dimension(440, 530));
+        addPartTime.setResizable(false);
+        addPartTime.setSize(new java.awt.Dimension(440, 530));
 
         partTimeFristNameLabel.setText("First Name");
 
@@ -475,7 +484,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(partTimeAddButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPartTimeLayout.createSequentialGroup()
-                        .addGap(0, 12, Short.MAX_VALUE)
+                        .addGap(0, 24, Short.MAX_VALUE)
                         .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPartTimeLayout.createSequentialGroup()
                                 .addComponent(partTimeLastNameLabel)
@@ -566,7 +575,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(partTimeWeeksPerYearLable))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(partTimeAddedLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(addPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeAddButton)
                     .addComponent(partTimeCancelButton))
@@ -684,29 +693,62 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        noEmployeeSelectedFrame.setSize(new java.awt.Dimension(383, 72));
+        noEmployeeSelectedFrame.setTitle("Editing Search");
+        noEmployeeSelectedFrame.setSize(new java.awt.Dimension(354, 150));
 
-        noEmployeeSelectedLabel.setText("No Employee has been selected");
+        searchEditEmployeeButton.setText("Search");
+        searchEditEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEditEmployeeButtonActionPerformed(evt);
+            }
+        });
+
+        searchEditEmployeeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEditEmployeeTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Enter an Employee Number for Editing");
 
         javax.swing.GroupLayout noEmployeeSelectedFrameLayout = new javax.swing.GroupLayout(noEmployeeSelectedFrame.getContentPane());
         noEmployeeSelectedFrame.getContentPane().setLayout(noEmployeeSelectedFrameLayout);
         noEmployeeSelectedFrameLayout.setHorizontalGroup(
             noEmployeeSelectedFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(noEmployeeSelectedFrameLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(noEmployeeSelectedLabel)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGroup(noEmployeeSelectedFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(noEmployeeSelectedFrameLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(searchEditEmployeeTextField))
+                    .addGroup(noEmployeeSelectedFrameLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(searchEditEmployeeButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(noEmployeeSelectedFrameLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(jLabel20)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         noEmployeeSelectedFrameLayout.setVerticalGroup(
             noEmployeeSelectedFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(noEmployeeSelectedFrameLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(noEmployeeSelectedLabel)
-                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, noEmployeeSelectedFrameLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addComponent(searchEditEmployeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchEditEmployeeButton)
+                .addContainerGap())
         );
 
         editFullTime.setTitle("Add a Full-Time Employee");
         editFullTime.setSize(new java.awt.Dimension(438, 474));
+        editFullTime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editFullTimeMouseExited(evt);
+            }
+        });
 
         fullTimeFristNameLabel1.setText("First Name");
 
@@ -853,7 +895,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         editPartTime.setTitle("Add a Part-Time Employee");
-        editPartTime.setSize(new java.awt.Dimension(438, 474));
+        editPartTime.setSize(new java.awt.Dimension(440, 550));
 
         partTimeFristNameLabel1.setText("First Name");
 
@@ -877,7 +919,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         partTimeWeeksPerYearLable1.setText("Weeks per Year");
 
-        partTimeAddButton1.setText("Add");
+        partTimeAddButton1.setText("Edit");
         partTimeAddButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 partTimeAddButton1MouseExited(evt);
@@ -919,7 +961,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(partTimeAddButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPartTimeLayout.createSequentialGroup()
-                        .addGap(0, 12, Short.MAX_VALUE)
+                        .addGap(0, 24, Short.MAX_VALUE)
                         .addGroup(editPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPartTimeLayout.createSequentialGroup()
                                 .addComponent(partTimeLastNameLabel1)
@@ -1010,7 +1052,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(partTimeWeeksPerYearLable1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(partTimeAddedLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(editPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partTimeAddButton1)
                     .addComponent(partTimeCancelButton1)
@@ -1018,23 +1060,39 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        doesNotExist.setSize(new java.awt.Dimension(400, 180));
+
         jLabel16.setText("This employee does not exist!");
+
+        doesNotExistOkButton.setText("Ok");
+        doesNotExistOkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doesNotExistOkButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout doesNotExistLayout = new javax.swing.GroupLayout(doesNotExist.getContentPane());
         doesNotExist.getContentPane().setLayout(doesNotExistLayout);
         doesNotExistLayout.setHorizontalGroup(
             doesNotExistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, doesNotExistLayout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(127, 127, 127))
+            .addGroup(doesNotExistLayout.createSequentialGroup()
+                .addGroup(doesNotExistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(doesNotExistLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jLabel16))
+                    .addGroup(doesNotExistLayout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(doesNotExistOkButton)))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         doesNotExistLayout.setVerticalGroup(
             doesNotExistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, doesNotExistLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+            .addGroup(doesNotExistLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addComponent(jLabel16)
-                .addGap(32, 32, 32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(doesNotExistOkButton)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         saveAsFrame.setSize(new java.awt.Dimension(509, 200));
@@ -1054,6 +1112,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        saveAsCancelButton.setText("Cancel");
+        saveAsCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsCancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout saveAsFrameLayout = new javax.swing.GroupLayout(saveAsFrame.getContentPane());
         saveAsFrame.getContentPane().setLayout(saveAsFrameLayout);
         saveAsFrameLayout.setHorizontalGroup(
@@ -1064,12 +1129,15 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(103, 103, 103)
                         .addComponent(databaseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(saveAsFrameLayout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(saveAsConfirmButton))
-                    .addGroup(saveAsFrameLayout.createSequentialGroup()
                         .addGap(189, 189, 189)
                         .addComponent(jLabel17)))
                 .addContainerGap(123, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, saveAsFrameLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(saveAsCancelButton)
+                .addGap(18, 18, 18)
+                .addComponent(saveAsConfirmButton)
+                .addGap(187, 187, 187))
         );
         saveAsFrameLayout.setVerticalGroup(
             saveAsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1079,7 +1147,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(databaseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(saveAsConfirmButton)
+                .addGroup(saveAsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveAsConfirmButton)
+                    .addComponent(saveAsCancelButton))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
 
@@ -1094,23 +1164,32 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        loadCancelButton.setText("Cancel");
+        loadCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadCancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout loadFrameLayout = new javax.swing.GroupLayout(loadFrame.getContentPane());
         loadFrame.getContentPane().setLayout(loadFrameLayout);
         loadFrameLayout.setHorizontalGroup(
             loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loadFrameLayout.createSequentialGroup()
-                .addGroup(loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(loadFrameLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(loadDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loadFrameLayout.createSequentialGroup()
-                            .addGap(78, 78, 78)
-                            .addComponent(jLabel18)))
+                .addGroup(loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(loadFrameLayout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(confirmLoadButton)))
+                        .addContainerGap()
+                        .addComponent(loadDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loadFrameLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel18)))
                 .addContainerGap(83, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loadFrameLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(loadCancelButton)
+                .addGap(18, 18, 18)
+                .addComponent(confirmLoadButton)
+                .addGap(129, 129, 129))
         );
         loadFrameLayout.setVerticalGroup(
             loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1120,7 +1199,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(loadDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(confirmLoadButton)
+                .addGroup(loadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmLoadButton)
+                    .addComponent(loadCancelButton))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
@@ -1390,6 +1471,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         partTimePannel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        partTimePannel.setMinimumSize(new java.awt.Dimension(224, 187));
 
         jLabel11.setText("Hourly Wage:");
 
@@ -1537,27 +1619,23 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(fullTimeLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(partTimeLabel)
-                                .addGap(63, 63, 63)))))
+                                .addGap(63, 63, 63))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(saveButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(733, 733, 733)
+                                .addComponent(deleteDatabaseButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(347, 347, 347)
+                                .addComponent(title)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(733, 733, 733)
-                        .addComponent(deleteDatabaseButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(347, 347, 347)
-                        .addComponent(title)))
-                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1571,7 +1649,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -1595,7 +1673,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(addButton)
                             .addComponent(removeButton)
                             .addComponent(editButton))
-                        .addContainerGap(18, Short.MAX_VALUE))
+                        .addContainerGap(20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(title)
@@ -1848,7 +1926,6 @@ public class MainFrame extends javax.swing.JFrame {
             if (emp instanceof PartTimeEmployee) {
                 PartTimeEmployee partEmp = (PartTimeEmployee) emp;
                 //sets values of textfiels representing current values of the employee
-                editFullTime.setVisible(true);
                 partTimeFirstNameTextField1.setText(partEmp.getFirstName());
                 partTimeLastNameTextField1.setText(partEmp.getLastName());
                 partTimeEmployeeNumberTextField1.setText(String.valueOf(partEmp.getEmployeeNumber()));
@@ -1932,7 +2009,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_fullTimeCancelButton1ActionPerformed
 
     private void partTimeAddButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partTimeAddButton1MouseExited
-        // TODO add your handling code here:
+        partTimeAddedLabel1.setText("");
     }//GEN-LAST:event_partTimeAddButton1MouseExited
 
     private void partTimeAddButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeAddButton1ActionPerformed
@@ -2100,65 +2177,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         loadFrame.setVisible(true);
-        /*
-        theTable = new MyHashTable(2);
-        File dataFile = new File("src/data.txt");
-        
-        String line = null;
-        
-        try {
-            if (!dataFile.exists()){
-                File data = new File ("src\\data.txt");
-            
-                data.getParentFile().mkdirs();
-                data.createNewFile();
-            }
-            FileReader fileReader = new FileReader(dataFile);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            
-            while((line = bufferedReader.readLine()) != null) {
-                String [] lineData = line.split("&"); //splitting string by &
-                
-                if (lineData[0].equals("f")) {
-                    FullTimeEmployee somebody;
-                    somebody = new FullTimeEmployee (Integer.parseInt(lineData[1]), 
-                                                     Integer.parseInt(lineData[2]),
-                                                     Integer.parseInt(lineData[3]),
-                                                     Integer.parseInt(lineData[4]),
-                                                     Double.parseDouble(lineData[5]),
-                                                     lineData[6],
-                                                     lineData[7],
-                                                     Double.parseDouble(lineData[8]));
-                    theTable.addToHashTable(somebody);
-                    
-                }
-                
-                else if (lineData[0].equals("p")) {
-                    PartTimeEmployee somebody;
-                    somebody = new PartTimeEmployee (Integer.parseInt(lineData[1]), 
-                                                     Integer.parseInt(lineData[2]),
-                                                     Integer.parseInt(lineData[3]),
-                                                     Integer.parseInt(lineData[4]),
-                                                     Double.parseDouble(lineData[5]),
-                                                     lineData[6],
-                                                     lineData[7],
-                                                     Double.parseDouble(lineData[8]),
-                                                     Double.parseDouble(lineData[9]),
-                                                     Double.parseDouble(lineData[9]));
-                    theTable.addToHashTable(somebody);
-                    
-                }
-            
-		
-            }
-            bufferedReader.close();
-            
-        } catch (IOException ex) {
-            System.out.println("you fucked up, couldn't write to '" + dataFile + "'");
-        }
-        
-        reloadTable();
-        */
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void clearTBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTBActionPerformed
@@ -2379,6 +2397,70 @@ public class MainFrame extends javax.swing.JFrame {
         deleteDBMessage.setVisible(false);
     }//GEN-LAST:event_okActionPerformed
 
+    private void doesNotExistOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doesNotExistOkButtonActionPerformed
+        // TODO add your handling code here:
+        doesNotExist.setVisible(false);
+    }//GEN-LAST:event_doesNotExistOkButtonActionPerformed
+
+    private void saveAsCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsCancelButtonActionPerformed
+        // TODO add your handling code here:
+        saveAsFrame.setVisible(false);
+    }//GEN-LAST:event_saveAsCancelButtonActionPerformed
+
+    private void loadCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadCancelButtonActionPerformed
+        // TODO add your handling code here:
+        loadFrame.setVisible(false);
+    }//GEN-LAST:event_loadCancelButtonActionPerformed
+
+    private void searchEditEmployeeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEditEmployeeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchEditEmployeeTextFieldActionPerformed
+
+    private void searchEditEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEditEmployeeButtonActionPerformed
+            int empNum = Integer.parseInt(searchEditEmployeeTextField.getText().toString());
+            EmployeeInfo emp = theTable.findEmployee(empNum);
+            
+            if (emp instanceof PartTimeEmployee) {
+                PartTimeEmployee partEmp = (PartTimeEmployee) emp;
+                //sets values of textfiels representing current values of the employee
+                partTimeFirstNameTextField1.setText(partEmp.getFirstName());
+                partTimeLastNameTextField1.setText(partEmp.getLastName());
+                partTimeEmployeeNumberTextField1.setText(String.valueOf(partEmp.getEmployeeNumber()));
+                partTimeSexComboBox1.setSelectedIndex(partEmp.getSex());
+                partTimeWorkLocationComboBox1.setSelectedIndex(partEmp.getWorkLocation());
+                partTimeAgeTextField1.setText(String.valueOf(partEmp.getAge()));
+                partTimeDeductionRateTextField1.setText(String.valueOf(partEmp.getDeductionsRate()));
+                partTimeHourlyWageTextField1.setText(String.valueOf(partEmp.getHourlyWage()));
+                partTimeHoursPerWeekTextField1.setText(String.valueOf(partEmp.getHoursPerWeek()));
+                partTimeWeeksPerYearTextField1.setText(String.valueOf(partEmp.getWeeksPerYear()));
+                
+                editPartTime.setVisible(true);
+                
+                originalEmpNum = empNum;
+            } else if (emp instanceof FullTimeEmployee) {
+                
+                FullTimeEmployee fullEmp = (FullTimeEmployee) emp;
+                
+                editFullTime.setVisible(true);
+                fullTimeFirstNameTextField1.setText(fullEmp.getFirstName());
+                fullTimeLastNameTextField1.setText(fullEmp.getLastName());
+                fullTimeEmployeeNumberTextField1.setText(String.valueOf(fullEmp.getEmployeeNumber()));
+                fullTimeSexComboBox1.setSelectedIndex(fullEmp.getSex());
+                fullTimeWorkLocationComboBox1.setSelectedIndex(fullEmp.getWorkLocation());
+                fullTimeAgeTextField1.setText(String.valueOf(fullEmp.getAge()));
+                fullTimeDeductionRateTextField1.setText(String.valueOf(fullEmp.getDeductionsRate()));
+                fullTimeYearlySalaryTextField1.setText(String.valueOf(fullEmp.getYearlySalary()));
+                
+                originalEmpNum = empNum;
+            }
+            
+            noEmployeeSelectedFrame.setVisible(false);
+    }//GEN-LAST:event_searchEditEmployeeButtonActionPerformed
+
+    private void editFullTimeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editFullTimeMouseExited
+        fullTimeAddedLabel1.setText("");
+    }//GEN-LAST:event_editFullTimeMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -2430,6 +2512,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame deleteDBMessage;
     private javax.swing.JButton deleteDatabaseButton;
     private javax.swing.JFrame doesNotExist;
+    private javax.swing.JButton doesNotExistOkButton;
     private javax.swing.JButton editButton;
     private javax.swing.JFrame editFullTime;
     private javax.swing.JFrame editPartTime;
@@ -2498,6 +2581,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2512,12 +2596,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private java.awt.Label label1;
     private javax.swing.JTextField lastNameTB;
+    private javax.swing.JButton loadCancelButton;
     private javax.swing.JTextField loadDatabaseName;
     private javax.swing.JFrame loadFrame;
     private javax.swing.JFrame missingFrame;
     private javax.swing.JButton missingFrameOkButton;
     private javax.swing.JFrame noEmployeeSelectedFrame;
-    private javax.swing.JLabel noEmployeeSelectedLabel;
     private javax.swing.JButton ok;
     private javax.swing.JMenuItem partTime;
     private javax.swing.JButton partTimeAddButton;
@@ -2570,10 +2654,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton removeButton;
     private javax.swing.JFrame removeFrame;
     private javax.swing.JTextField salaryTB;
+    private javax.swing.JButton saveAsCancelButton;
     private javax.swing.JButton saveAsConfirmButton;
     private javax.swing.JFrame saveAsFrame;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton searchButton;
+    private javax.swing.JButton searchEditEmployeeButton;
+    private javax.swing.JTextField searchEditEmployeeTextField;
     private javax.swing.JTextField searchTB;
     private javax.swing.JComboBox<String> sexComboBox;
     private javax.swing.JLabel textField1;
